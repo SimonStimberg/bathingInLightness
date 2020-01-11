@@ -7,27 +7,44 @@ using namespace cv;
 
 void ofApp::setup()
 {
-    auto devs = cam.listDevices();
-    for(auto & d : devs) {
-        std::cout << d.id << ": " << d.deviceName << " // " <<
-        d.formats.size() << " formats" << std::endl;
-        for(auto & f : d.formats) {
-            std::cout << "  " << f.width << "x" << f.height << std::endl;
-            for(auto & fps : f.framerates) {
-                std::cout << "    " << fps << std::endl;
-            }
+  
+    // list video devices
+    cam.setVerbose(true);
+    vector<ofVideoDevice> devices = cam.listDevices();
+    for(size_t i = 0; i < devices.size(); i++){
+        if(devices[i].bAvailable){
+            //log the device
+            ofLogNotice() << devices[i].id << ": " << devices[i].deviceName;
+        }else{
+            //log the device and note it as unavailable
+            ofLogNotice() << devices[i].id << ": " << devices[i].deviceName << " - unavailable ";
         }
     }
+    
+    
+    
+    ofSetLogLevel(OF_LOG_VERBOSE);
+    
+    // enable depth->video image calibration
+    kinect.setRegistration(true);
+    
+    kinect.init();
+    //kinect.init(true); // shows infrared instead of RGB video image
+    //kinect.init(false, false); // disable video image (faster fps)
+    
+    kinect.open();
+    
+    
 
     
 	ofSetVerticalSync(true);
 //    ofSetFrameRate(120);
-	cam.setup(640, 480);
+//	cam.setup(640, 480);
 	
 //	mesh.setMode(OF_PRIMITIVE_TRIANGLES);
 	stepSize = 20;
-	ySteps = cam.getHeight() / stepSize;
-	xSteps = cam.getWidth() / stepSize;
+	ySteps = kinect.height / stepSize;
+	xSteps = kinect.width / stepSize;
     
     
 	for (int y = 0; y < ySteps; y++)
@@ -88,13 +105,13 @@ void ofApp::setup()
 
 void ofApp::update()
 {
-	cam.update();
+	kinect.update();
 
-    if(cam.isFrameNew())
+    if(kinect.isFrameNew())
     {
 //        cam.mirror(false, true);
         ofxCvColorImage colorImg;
-        colorImg.setFromPixels(cam.getPixels());
+        colorImg.setFromPixels(kinect.getPixels());
         colorImg.mirror(false, true);
 //        ofxCvGrayscaleImage grayImg;
 //        grayImg = colorImg;
@@ -207,8 +224,8 @@ void ofApp::draw()
 //    grayImg.draw(680,0);
 //    cam.draw(680,0);
     
-    float xScale = ofGetScreenWidth() / cam.getWidth();
-    float yScale = ofGetScreenHeight() / cam.getHeight();
+    float xScale = ofGetScreenWidth() / kinect.width;
+    float yScale = ofGetScreenHeight() / kinect.height;
     
     int i = 0;
     for(int y = 1; y + 1 < ySteps; y++)

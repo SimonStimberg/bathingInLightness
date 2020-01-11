@@ -6169,6 +6169,560 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>8034DE3A9E4F411BE52E7424</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxKinect.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/ofxKinect.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>85C11F7435BB74BFEC84CC05</key>
+			<dict>
+				<key>fileRef</key>
+				<string>8129C983D898F4BC575E7CDA</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>8129C983D898F4BC575E7CDA</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxKinect.cpp</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/ofxKinect.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>954833D704E69549FEB57920</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBase3DVideo.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/ofxBase3DVideo.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>5256462EC2FF351FD09B67AA</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxKinectExtras.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/extra/ofxKinectExtras.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>6E7134DE536888BE82D56327</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>2D684CA4BF46D826D5D5B9E2</string>
+					<string>5256462EC2FF351FD09B67AA</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>extra</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>F3D2DB7201EFA9F7958F421E</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>6E7134DE536888BE82D56327</string>
+					<string>954833D704E69549FEB57920</string>
+					<string>8129C983D898F4BC575E7CDA</string>
+					<string>8034DE3A9E4F411BE52E7424</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>B7D979A014350390BF6D6F9C</key>
+			<dict>
+				<key>fileRef</key>
+				<string>2D684CA4BF46D826D5D5B9E2</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>2D684CA4BF46D826D5D5B9E2</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxKinectExtras.cpp</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/extra/ofxKinectExtras.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>33F75E842570194352AF511E</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>A4E99F3E29A75D46864C929C</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>include</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>F0C89F35964434FD6E335702</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>33F75E842570194352AF511E</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>libusb</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>A4E99F3E29A75D46864C929C</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>libusb.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/include/libusb.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>3CF6F015033E0D1529399CB5</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>usb_libusb10.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/usb_libusb10.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>9FDFCB18EF7BD188098F96ED</key>
+			<dict>
+				<key>fileRef</key>
+				<string>9A9B2F372A740DEC8A9A8D82</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>9A9B2F372A740DEC8A9A8D82</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.c</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>usb_libusb10.c</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/usb_libusb10.c</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>B848E40D3D28FDE2B9F1D495</key>
+			<dict>
+				<key>fileRef</key>
+				<string>FC7CE694B4B5C229D0868CF5</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>FC7CE694B4B5C229D0868CF5</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.c</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>tilt.c</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/tilt.c</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>187B820FD4E7DDEA0D864B1D</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>registration.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/registration.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>FAD51BBA1C613F98B383F55D</key>
+			<dict>
+				<key>fileRef</key>
+				<string>8750562D7AF10EA228643F94</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>8750562D7AF10EA228643F94</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.c</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>registration.c</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/registration.c</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>33CF1E148A95097C53F81CD4</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>loader.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/loader.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>A55F9D8DE8D85E67092CD20F</key>
+			<dict>
+				<key>fileRef</key>
+				<string>A503C0726AA00ABB17BB5DA9</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>A503C0726AA00ABB17BB5DA9</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.c</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>loader.c</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/loader.c</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>6CCDB6169CC4B46BC1670127</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>freenect_internal.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/freenect_internal.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>AA82DDA7909681135B17A283</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>flags.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/flags.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>7C9C29E2CAC0B66099C6FA12</key>
+			<dict>
+				<key>fileRef</key>
+				<string>871FB61F257FC319F40A6DC1</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>871FB61F257FC319F40A6DC1</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.c</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>flags.c</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/flags.c</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>D4AF987D41887345AAF2DF93</key>
+			<dict>
+				<key>fileRef</key>
+				<string>D381EC7F223FF41D2E51FA99</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>D381EC7F223FF41D2E51FA99</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.c</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>core.c</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/core.c</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>AABF5EBCD3B65DB45A24EB07</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>cameras.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/cameras.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>3C25E5E66A6D96B5E61A443E</key>
+			<dict>
+				<key>fileRef</key>
+				<string>D524E2328FD5A980B49C3995</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>D524E2328FD5A980B49C3995</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.c</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>cameras.c</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/cameras.c</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>ED6E9BDB447DB965EE6F1FA6</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>862BB6D68D4D8654FA06946A</string>
+					<string>D524E2328FD5A980B49C3995</string>
+					<string>AABF5EBCD3B65DB45A24EB07</string>
+					<string>D381EC7F223FF41D2E51FA99</string>
+					<string>871FB61F257FC319F40A6DC1</string>
+					<string>AA82DDA7909681135B17A283</string>
+					<string>6CCDB6169CC4B46BC1670127</string>
+					<string>A503C0726AA00ABB17BB5DA9</string>
+					<string>33CF1E148A95097C53F81CD4</string>
+					<string>8750562D7AF10EA228643F94</string>
+					<string>187B820FD4E7DDEA0D864B1D</string>
+					<string>FC7CE694B4B5C229D0868CF5</string>
+					<string>9A9B2F372A740DEC8A9A8D82</string>
+					<string>3CF6F015033E0D1529399CB5</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>57A7B2729DA7BE0797258D2F</key>
+			<dict>
+				<key>fileRef</key>
+				<string>862BB6D68D4D8654FA06946A</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>862BB6D68D4D8654FA06946A</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.c</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>audio.c</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src/audio.c</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>1332DBB62C87389E5C824091</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>libfreenect_registration.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include/libfreenect_registration.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>CE663DD12ED1BCDEE7576443</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>libfreenect_audio.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include/libfreenect_audio.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>6DFA2B327764FCDA2A8D882F</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>064FE07B3F620938FC54163F</string>
+					<string>CE663DD12ED1BCDEE7576443</string>
+					<string>1332DBB62C87389E5C824091</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>include</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>32687044708CDA9EDA265387</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>6DFA2B327764FCDA2A8D882F</string>
+					<string>ED6E9BDB447DB965EE6F1FA6</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>libfreenect</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>F4101FC676C210E28DCB3220</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>32687044708CDA9EDA265387</string>
+					<string>F0C89F35964434FD6E335702</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>libs</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>9683228C705CA3FF4F2EA945</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>F4101FC676C210E28DCB3220</string>
+					<string>F3D2DB7201EFA9F7958F421E</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>ofxKinect</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>064FE07B3F620938FC54163F</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>4</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>libfreenect.h</string>
+				<key>path</key>
+				<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include/libfreenect.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>873F2BD1A608B2DE7BC81AFB</key>
 			<dict>
 				<key>children</key>
@@ -7165,6 +7719,17 @@ fi
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/platform</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/extra</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/include</string>
@@ -7261,6 +7826,17 @@ fi
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/platform</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/extra</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/include</string>
@@ -7330,6 +7906,7 @@ fi
 						<string>$(OF_CORE_LIBS)</string>
 						<string>$(OF_CORE_FRAMEWORKS)</string>
 						<string>$(LIB_OF)</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx/usb-1.0.0.a</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a</string>
 					</array>
 					<key>PRODUCT_NAME</key>
@@ -7349,6 +7926,7 @@ fi
 				<key>children</key>
 				<array>
 					<string>6025FAF6414C2CA589764D26</string>
+					<string>9683228C705CA3FF4F2EA945</string>
 					<string>A0B90D3B0ADB9C1716816714</string>
 				</array>
 				<key>isa</key>
@@ -10120,6 +10698,17 @@ fi
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/platform</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/extra</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/include</string>
@@ -10236,6 +10825,17 @@ fi
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/platform</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/extra</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/include</string>
@@ -10327,6 +10927,16 @@ fi
 					<string>85E2253BBE582200E5769D7C</string>
 					<string>8DBACD5D7CE4CE99B6FFF366</string>
 					<string>815F7F7742744419F7F94A8E</string>
+					<string>57A7B2729DA7BE0797258D2F</string>
+					<string>3C25E5E66A6D96B5E61A443E</string>
+					<string>D4AF987D41887345AAF2DF93</string>
+					<string>7C9C29E2CAC0B66099C6FA12</string>
+					<string>A55F9D8DE8D85E67092CD20F</string>
+					<string>FAD51BBA1C613F98B383F55D</string>
+					<string>B848E40D3D28FDE2B9F1D495</string>
+					<string>9FDFCB18EF7BD188098F96ED</string>
+					<string>B7D979A014350390BF6D6F9C</string>
+					<string>85C11F7435BB74BFEC84CC05</string>
 					<string>6A58D04D8FE976C60439D7C6</string>
 					<string>F895728BF48A6EEBC613C8EC</string>
 					<string>46C056474D5C3CCEDD76D97B</string>
@@ -10373,7 +10983,7 @@ fi
 				<key>isa</key>
 				<string>PBXNativeTarget</string>
 				<key>name</key>
-				<string>flow_minor04</string>
+				<string>flow_minor05</string>
 				<key>productName</key>
 				<string>myOFApp</string>
 				<key>productReference</key>
@@ -10390,7 +11000,7 @@ fi
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>path</key>
-				<string>flow_minor04Debug.app</string>
+				<string>flow_minor05Debug.app</string>
 				<key>sourceTree</key>
 				<string>BUILT_PRODUCTS_DIR</string>
 			</dict>
@@ -10438,6 +11048,17 @@ fi
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/platform</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/extra</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/include</string>
@@ -10507,6 +11128,7 @@ fi
 						<string>$(OF_CORE_LIBS)</string>
 						<string>$(OF_CORE_FRAMEWORKS)</string>
 						<string>$(LIB_OF_DEBUG)</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx/usb-1.0.0.a</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a</string>
 					</array>
 					<key>PRODUCT_NAME</key>
@@ -10546,6 +11168,17 @@ fi
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxCv/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/platform</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libfreenect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/include</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/src/extra</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/include</string>
@@ -10615,6 +11248,7 @@ fi
 						<string>$(OF_CORE_LIBS)</string>
 						<string>$(OF_CORE_FRAMEWORKS)</string>
 						<string>$(LIB_OF)</string>
+						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxKinect/libs/libusb/lib/osx/usb-1.0.0.a</string>
 						<string>../../../../../../../Cache/Applications/OF_ROOT/addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a</string>
 					</array>
 					<key>PRODUCT_NAME</key>
