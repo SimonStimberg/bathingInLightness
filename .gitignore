@@ -6,6 +6,9 @@
 /bin/*
 !/bin/data/
 
+*.mov
+*.mp4
+
 #########
 # general
 #########
