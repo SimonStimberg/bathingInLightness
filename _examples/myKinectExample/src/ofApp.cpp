@@ -156,16 +156,16 @@ void ofApp::drawPointCloud() {
 	int h = 480;
 	ofMesh mesh;
 	mesh.setMode(OF_PRIMITIVE_POINTS);
-	int step = 2;
+	int step = 10;
 	for(int y = 0; y < h; y += step) {
 		for(int x = 0; x < w; x += step) {
-			if(kinect.getDistanceAt(x, y) > 0 && kinect.getDistanceAt(x, y) < 1000 ) {
+			if(kinect.getDistanceAt(x, y) > 0 && kinect.getDistanceAt(x, y) < 2000 ) {
 				mesh.addColor(kinect.getColorAt(x,y));
 				mesh.addVertex(kinect.getWorldCoordinateAt(x, y));
 			}
 		}
 	}
-	glPointSize(3);
+	glPointSize(2 * step);
 	ofPushMatrix();
 	// the projected points are 'upside down' and 'backwards' 
 	ofScale(1, -1, -1);
