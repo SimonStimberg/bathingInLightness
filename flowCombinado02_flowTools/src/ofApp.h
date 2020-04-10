@@ -6,7 +6,11 @@
 #include "ofxOpenCv.h"
 #include "ofxKinect.h"
 #include "ofxMioFlowGLSL.h"
+#include "ofxFlowTools.h"
+
 #include "synth/ofSynth.h"
+
+using namespace flowTools;
 
 class ofApp : public ofBaseApp
 {
@@ -30,11 +34,11 @@ public:
     ofxKinect kinect;
     ofxMioFlowGLSL mioFlow;
     ofFloatPixels flowPix; // contains flow information in pixels
-    
-    bool blurOn;
-    
-    void keyPressed(int key);
-    void keyReleased(int key);
+
+    ftOpticalFlow flowtoolsFlow;
+    ofFbo                cameraFbo;
+    ofFbo                finalFlow;
+    vector< ftFlow* >        flows;
     
     
     

@@ -17,10 +17,13 @@ void ofApp::setup()
     // enable depth->video image calibration
     kinect.setRegistration(true);
     
-    // kinect.init();
+//     kinect.init();
     // kinect.init(true); // shows infrared instead of RGB video image
     kinect.init(false, false); // disable video image (faster fps)
     kinect.open();
+    
+//    kinect.enableDepthNearValueWhite(false);
+    
     ofLogNotice("Dimensions: " + ofToString(kinect.getWidth()) + "x" + ofToString(kinect.getHeight()));
 
     grayImg.allocate(kinect.getWidth(), kinect.getHeight());
@@ -41,6 +44,19 @@ void ofApp::setup()
     //        mioFlow.drawVectorsStep = 100;
     
     
+    // FLOW TOOLS STUFF
+    flowtoolsFlow.setup(kinect.getWidth(), kinect.getHeight());
+    flowtoolsFlow.setVisualizationScale(1);
+    flowtoolsFlow.setVisualizationToggleScalar(true);
+    
+    cameraFbo.allocate(kinect.getWidth(), kinect.getHeight());
+    ftUtil::zero(cameraFbo);
+    finalFlow.allocate(kinect.getWidth(), kinect.getHeight());
+    ftUtil::zero(finalFlow);
+    
+    
+    
+    
 	stepSize = 20;
 	ySteps = kinect.getHeight() / stepSize;
 	xSteps = kinect.getWidth() / stepSize;
@@ -59,8 +75,6 @@ void ofApp::setup()
     setupOscs();
     
     ofHideCursor();
-    
-    blurOn = true;
 
 }
 
@@ -68,9 +82,10 @@ void ofApp::setup()
 
 void ofApp::update()
 {
+    kinect.setDepthClipping(900, 1300);
 	kinect.update();
 
-    if(kinect.isFrameNew())
+    if(kinect.isFrameNewDepth())
     {
         
 //        grayImg = kinect.getDepthPixels();
@@ -78,61 +93,75 @@ void ofApp::update()
 //        grayImg.resize(320, 240);
         grayImg.mirror(false, true);
         
-        int nearThreshold = 230;
-        int farThreshold = 170;
-        
+//        int nearThreshold = 230;
+//        int farThreshold = 170;
+           
         ofPixels & pix = grayImg.getPixels();
         int numPixels = pix.size();
         for(int i = 0; i < numPixels; i++) {
-            if(pix[i] < nearThreshold && pix[i] > farThreshold) {
-//                pix[i] = 255;
-            } else {
+            if(pix[i] >= 255) {
                 pix[i] = 0;
+            } else if(pix[i] != 0) {
+//                pix[i] = 255;
             }
         }
         grayImg.updateTexture();
         
-        if(blurOn) {
-            grayImg.blur(13);
-            grayImg.threshold(100);
-            grayImg.blur(5);
-    //        grayImg
-        }
+
+        cameraFbo.begin();
+//            kinect.drawDepth(cameraFbo.getWidth(), 0, -cameraFbo.getWidth(), cameraFbo.getHeight());  // draw flipped
+        grayImg.draw(0,0);
+        cameraFbo.end();
+        
+        flowtoolsFlow.setInput(cameraFbo.getTexture());
+
+        
+        flowtoolsFlow.update();
+        
+//        finalFlow.clear();
+        ftUtil::zero(finalFlow);
+        finalFlow.begin();
+            flowtoolsFlow.draw(0, 0, kinect.getWidth(), kinect.getHeight());
+        finalFlow.end();
+        
+        finalFlow.readToPixels(flowPix);
+
+
         
         
-        mioFlow.update(grayImg.getTexture());
-//        mioFlow.update(kinect.getDepthTexture());
-        
-        
-        ofTexture & tex = mioFlow.getFlowBlurTexture();
-        
-        tex.readToPixels(flowPix);
-        
-        
-        // the code is derived from the drawVectors member function of the MIOflow addOn
-        // it derives from the color values of the Flow texture a vector of the flow
-        int drawVectorsScale = 1000;
-        int k = 0;
-        
-        for(int j = 0; j < kinect.getHeight(); j += stepSize) {
-            for(int i = 0; i < kinect.getWidth(); i += stepSize) {
-                ofFloatColor c = flowPix.getColor(i, j);
-                if (c.a >0.95)  c.b *= -1.0;
-                
-                ofVec2f v = ofVec2f(c.r - c.g, c.b);
-//                v *= drawVectorsScale;
-                
-                if(v.length() < 0.1) {
-                    v = ofVec2f(0, 0);
-                } else {
-//                    v.normalize();
-                    v.scale(ofMap(v.length(), 0.1, 0.2, 0.0, 1.0));
-                }
-                flowAmount[k] = v;
-                k++;
-                
-            }
-        }
+        mioFlow.update(cameraFbo.getTexture());
+////        mioFlow.update(kinect.getDepthTexture());
+//
+//
+//        ofTexture & tex = flowtoolsFlow.getVelocity();
+//
+//        tex.readToPixels(flowPix);
+//
+//
+//        // the code is derived from the drawVectors member function of the MIOflow addOn
+//        // it derives from the color values of the Flow texture a vector of the flow
+//        int drawVectorsScale = 1000;
+//        int k = 0;
+//
+//        for(int j = 0; j < kinect.getHeight(); j += stepSize) {
+//            for(int i = 0; i < kinect.getWidth(); i += stepSize) {
+//                ofFloatColor c = flowPix.getColor(i, j);
+//                if (c.a >0.95)  c.b *= -1.0;
+//
+//                ofVec2f v = ofVec2f(c.r - c.g, c.b);
+////                v *= drawVectorsScale;
+//
+//                if(v.length() < 0.1) {
+//                    v = ofVec2f(0, 0);
+//                } else {
+////                    v.normalize();
+//                    v.scale(ofMap(v.length(), 0.1, 0.2, 0.0, 1.0));
+//                }
+//                flowAmount[k] = v;
+//                k++;
+//
+//            }
+//        }
 
 
         
@@ -231,67 +260,92 @@ void ofApp::draw()
 	ofBackground(0);
     ofFill();
     
+//    ofTexture & tex = flowtoolsFlow.getOutput();
+    
+    cameraFbo.draw(kinect.getWidth(), 0);
+//    kinect.drawDepth(kinect.getWidth(), kinect.getHeight());
     
     
+    ofPushStyle();
+    ofEnableBlendMode(OF_BLENDMODE_DISABLED);
+//    cameraFbo.draw(0, 0);
+    
+    ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+//    flowtoolsFlow.draw(0, 0, kinect.getWidth(), kinect.getHeight());
+//    flowtoolsFlow.drawInput(0, kinect.getHeight(), kinect.getWidth(), kinect.getHeight());
+//    mioFlow.drawFlowGridRaw(0, kinect.getHeight());
 
+//    tex.draw(0, 0, kinect.getWidth(), kinect.getHeight());
+    finalFlow.draw(0, 0, kinect.getWidth(), kinect.getHeight());
+    
+//    ofTexture tex = flowtoolsFlow.getOutput();
+    
+    
+    ofPopStyle();
+    
+    
+    
+    
     
 
     
-//    ofPushStyle();
-//    ofPushMatrix();
-//    int drawVectorsScale = 1000;
-//
-//    for(int j = 0; j < kinect.getHeight(); j += stepSize) {
-//        for(int i = 0; i < kinect.getWidth(); i += stepSize) {
-//            ofFloatColor c = flowPix.getColor(i, j);
-//            if (c.a >0.95)  c.b *= -1.0;
-//
-//            ofVec2f v = ofVec2f(c.r - c.g, c.b);
-//            v *= drawVectorsScale;
-//            ofLine(i, j, i+v.x, j+v.y);
-//        }
-//    }
-//    ofPopMatrix();
-//    ofPopStyle();
-    
-    
 
     
+    ofPushStyle();
+    ofPushMatrix();
+    int drawVectorsScale = 100;
 
-    
-    float xScale = ofGetScreenWidth() / kinect.getWidth();
-    float yScale = ofGetScreenHeight() / kinect.getHeight();
+    for(int j = 0; j < kinect.getHeight(); j += stepSize) {
+        for(int i = 0; i < kinect.getWidth(); i += stepSize) {
+            ofFloatColor c = flowPix.getColor(i, j);
+            if (c.a >0.95)  c.b *= -1.0;
 
-    int i = 0;
-    for(int y = 1; y + 1 < ySteps; y++)
-    {
-        for(int x = 1; x + 1 < xSteps; x++)
-        {
-            int i = y * xSteps + x;
-
-            auto shift_x = stepSize * x * yScale;  //  * xScale
-            auto shift_y = stepSize * y * yScale;  //  * yScale
-
-//            ofRectangle(shift_x, shift_y, );
-
-//            ofSetLineWidth(1);
-
-//            ofDrawLine(shift_x, shift_y, shift_x + (flowAmount[i].x * stepSize * xScale), shift_y + (flowAmount[i].y * stepSize * yScale));
-            ofDrawCircle(shift_x, shift_y, ofClamp(flowAmount[i].length(), 0.0, 1.0) * stepSize);
-            i++;
-
+            ofVec2f v = ofVec2f(c.r - c.g, c.b);
+            v *= drawVectorsScale;
+            ofLine(i, j, i+v.x, j+v.y);
         }
     }
+    ofPopMatrix();
+    ofPopStyle();
     
     
-    grayImg.draw(ofGetWidth()-kinect.getWidth(), ofGetHeight()-kinect.getHeight());
+
+    
+
+    
+//    float xScale = ofGetScreenWidth() / kinect.getWidth();
+//    float yScale = ofGetScreenHeight() / kinect.getHeight();
+//
+//    int i = 0;
+//    for(int y = 1; y + 1 < ySteps; y++)
+//    {
+//        for(int x = 1; x + 1 < xSteps; x++)
+//        {
+//            int i = y * xSteps + x;
+//
+//            auto shift_x = stepSize * x * yScale;  //  * xScale
+//            auto shift_y = stepSize * y * yScale;  //  * yScale
+//
+////            ofRectangle(shift_x, shift_y, );
+//
+////            ofSetLineWidth(1);
+//
+////            ofDrawLine(shift_x, shift_y, shift_x + (flowAmount[i].x * stepSize * xScale), shift_y + (flowAmount[i].y * stepSize * yScale));
+//            ofDrawCircle(shift_x, shift_y, ofClamp(flowAmount[i].length(), 0.0, 1.0) * stepSize);
+//            i++;
+//
+//        }
+//    }
+    
+    
+//    grayImg.draw(ofGetWidth()-kinect.getWidth(), ofGetHeight()-kinect.getHeight());
     
     //    mioFlow.drawReposition(0, 0);
-        mioFlow.drawReposition(mioFlow.getWidth(), 0);
-        mioFlow.drawVectors(mioFlow.getWidth(), 0);
+    //    mioFlow.drawReposition(mioFlow.getWidth(), 0);
+    //    mioFlow.drawVectors(mioFlow.getWidth(), 0);
     //
-        mioFlow.drawFlowGridRaw(0, mioFlow.getHeight());
-//        mioFlow.drawFlowGrid(ofGetWidth()-kinect.getWidth(), ofGetHeight()-kinect.getHeight());
+    //    mioFlow.drawFlowGridRaw(0, mioFlow.getHeight());
+
     
     
 
@@ -367,23 +421,4 @@ void ofApp::setupOscs() {
 
      float freq8 = 220 * pow(2,(15/12.f));
      synth.setFrequency(8, freq8);
-}
-
-
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key)
-{
-    switch(key) {
-        case 'b':
-            blurOn = !blurOn;
-            break;
-        default:
-            break;
-    }
-}
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key)
-{
-    
 }

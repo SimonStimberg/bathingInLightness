@@ -16,6 +16,9 @@ public:
 	void update();
 	void draw();
     
+    void drawVectorField(int xTrans, int yTrans);
+    void drawCircles();
+    
     void audioOut(ofSoundBuffer &outBuffer);
 	
 	ofVideoGrabber cam;
@@ -31,11 +34,7 @@ public:
     ofxMioFlowGLSL mioFlow;
     ofFloatPixels flowPix; // contains flow information in pixels
     
-    bool blurOn;
-    
-    void keyPressed(int key);
-    void keyReleased(int key);
-    
+    float averageFlow;
     
     
 private:

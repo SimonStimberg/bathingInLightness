@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "flow_minor04.app"
-               BlueprintName = "flow_minor04"
-               ReferencedContainer = "container:flow_minor04.xcodeproj">
+               BuildableName = "flowCombinado03_MIOflow_Visual.app"
+               BlueprintName = "flowCombinado03_MIOflow_Visual"
+               ReferencedContainer = "container:flowCombinado03_MIOflow_Visual.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "flow_minor04.app"
-            BlueprintName = "flow_minor04"
-            ReferencedContainer = "container:flow_minor04.xcodeproj">
+            BuildableName = "flowCombinado03_MIOflow_Visual.app"
+            BlueprintName = "flowCombinado03_MIOflow_Visual"
+            ReferencedContainer = "container:flowCombinado03_MIOflow_Visual.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "flow_minor04.app"
-            BlueprintName = "flow_minor04"
-            ReferencedContainer = "container:flow_minor04.xcodeproj">
+            BuildableName = "flowCombinado03_MIOflow_Visual.app"
+            BlueprintName = "flowCombinado03_MIOflow_Visual"
+            ReferencedContainer = "container:flowCombinado03_MIOflow_Visual.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "flow_minor04.app"
-            BlueprintName = "flow_minor04"
-            ReferencedContainer = "container:flow_minor04.xcodeproj">
+            BuildableName = "flowCombinado03_MIOflow_Visual.app"
+            BlueprintName = "flowCombinado03_MIOflow_Visual"
+            ReferencedContainer = "container:flowCombinado03_MIOflow_Visual.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

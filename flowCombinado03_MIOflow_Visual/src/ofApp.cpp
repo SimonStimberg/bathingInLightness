@@ -35,13 +35,13 @@ void ofApp::setup()
         mioFlow.doShaderRepos = false; // warp original image
         mioFlow.doReadback = true; // needed for vector drawing
         
-        mioFlow.lambda = 0.1;
+        mioFlow.lambda = 0.5;
         mioFlow.blurAmount = 5.0;
         mioFlow.displaceAmount = 1000;
     //        mioFlow.drawVectorsStep = 100;
     
     
-	stepSize = 20;
+	stepSize = 10;
 	ySteps = kinect.getHeight() / stepSize;
 	xSteps = kinect.getWidth() / stepSize;
        
@@ -59,8 +59,6 @@ void ofApp::setup()
     setupOscs();
     
     ofHideCursor();
-    
-    blurOn = true;
 
 }
 
@@ -68,36 +66,29 @@ void ofApp::setup()
 
 void ofApp::update()
 {
+    kinect.setDepthClipping(500, 800);
 	kinect.update();
 
     if(kinect.isFrameNew())
     {
         
-//        grayImg = kinect.getDepthPixels();
         grayImg.setFromPixels(kinect.getDepthPixels());
-//        grayImg.resize(320, 240);
         grayImg.mirror(false, true);
         
-        int nearThreshold = 230;
-        int farThreshold = 170;
+        
+        
         
         ofPixels & pix = grayImg.getPixels();
         int numPixels = pix.size();
         for(int i = 0; i < numPixels; i++) {
-            if(pix[i] < nearThreshold && pix[i] > farThreshold) {
-//                pix[i] = 255;
-            } else {
+            if(pix[i] >= 255) {
                 pix[i] = 0;
+            } else if(pix[i] != 0) {
+//                    pix[i] = 125;
             }
         }
         grayImg.updateTexture();
-        
-        if(blurOn) {
-            grayImg.blur(13);
-            grayImg.threshold(100);
-            grayImg.blur(5);
-    //        grayImg
-        }
+        grayImg.blur();
         
         
         mioFlow.update(grayImg.getTexture());
@@ -111,28 +102,34 @@ void ofApp::update()
         
         // the code is derived from the drawVectors member function of the MIOflow addOn
         // it derives from the color values of the Flow texture a vector of the flow
-        int drawVectorsScale = 1000;
+        int drawVectorsScale = 30;
         int k = 0;
+        averageFlow = 0;
         
+        float threshold = 3.;
+
         for(int j = 0; j < kinect.getHeight(); j += stepSize) {
             for(int i = 0; i < kinect.getWidth(); i += stepSize) {
                 ofFloatColor c = flowPix.getColor(i, j);
                 if (c.a >0.95)  c.b *= -1.0;
-                
+
                 ofVec2f v = ofVec2f(c.r - c.g, c.b);
-//                v *= drawVectorsScale;
-                
-                if(v.length() < 0.1) {
-                    v = ofVec2f(0, 0);
-                } else {
-//                    v.normalize();
-                    v.scale(ofMap(v.length(), 0.1, 0.2, 0.0, 1.0));
-                }
+                v *= drawVectorsScale;
+
+//                if(v.length() < 1) {
+//                    v = ofVec2f(0, 0);
+//                } else {
+////                    v.normalize();
+//                    v.scale(ofMap(v.length(), 1, 5, 0.0, 1.0));
+//                }
                 flowAmount[k] = v;
+                averageFlow += v.length();
                 k++;
-                
+
             }
         }
+        
+        averageFlow /= k+1;
 
 
         
@@ -231,9 +228,10 @@ void ofApp::draw()
 	ofBackground(0);
     ofFill();
     
+    grayImg.draw(0, 0);
     
-    
-
+    drawVectorField(kinect.getWidth(), 0);
+//    drawCircles();
     
 
     
@@ -259,6 +257,76 @@ void ofApp::draw()
     
 
     
+
+    
+    
+//    grayImg.draw(ofGetWidth()-kinect.getWidth(), ofGetHeight()-kinect.getHeight());
+    
+    //    mioFlow.drawReposition(0, 0);
+    //    mioFlow.drawReposition(mioFlow.getWidth(), 0);
+        mioFlow.drawVectors(mioFlow.getWidth(), mioFlow.getHeight());
+    
+        mioFlow.drawFlowGridRaw(0, mioFlow.getHeight());
+//        mioFlow.drawFlowGrid(ofGetWidth()-kinect.getWidth(), ofGetHeight()-kinect.getHeight());
+    
+    
+
+    ofDrawBitmapString("Fps: " + ofToString(ofGetFrameRate()), 10, 10);
+    ofDrawBitmapString("average Flow: " + ofToString(averageFlow), 10, 30);
+}
+
+
+
+void ofApp::drawVectorField(int xTrans, int yTrans) {
+    ofPushStyle();
+    ofPushMatrix();
+    
+    ofTranslate(xTrans, yTrans);
+    
+    int drawVectorsScale = 1000;
+    
+    float xScale = 1;
+    float yScale = 1;
+    
+    int i = 0;
+    for(int y = 1; y + 1 < ySteps; y++)
+    {
+        for(int x = 1; x + 1 < xSteps; x++)
+        {
+            int i = y * xSteps + x;
+
+            auto shift_x = stepSize * x * xScale;  //  * xScale
+            auto shift_y = stepSize * y * yScale;  //  * yScale
+
+    //            ofRectangle(shift_x, shift_y, );
+
+    //            ofSetLineWidth(1);
+
+            ofDrawLine(shift_x, shift_y, shift_x + (flowAmount[i].x * stepSize * xScale), shift_y + (flowAmount[i].y * stepSize * yScale));
+//            ofDrawCircle(shift_x, shift_y, ofClamp(flowAmount[i].length(), 0.0, 1.0) * stepSize);
+            i++;
+
+        }
+    }
+
+//    for(int j = 0; j < kinect.getHeight(); j += stepSize) {
+//        for(int i = 0; i < kinect.getWidth(); i += stepSize) {
+//            ofFloatColor c = flowPix.getColor(i, j);
+//            if (c.a >0.95)  c.b *= -1.0;
+//
+//            ofVec2f v = ofVec2f(c.r - c.g, c.b);
+//            v *= drawVectorsScale;
+//            ofLine(i, j, i+v.x, j+v.y);
+//        }
+//    }
+    ofPopMatrix();
+    ofPopStyle();
+}
+
+
+
+void ofApp::drawCircles() {
+    
     float xScale = ofGetScreenWidth() / kinect.getWidth();
     float yScale = ofGetScreenHeight() / kinect.getHeight();
 
@@ -283,19 +351,6 @@ void ofApp::draw()
         }
     }
     
-    
-    grayImg.draw(ofGetWidth()-kinect.getWidth(), ofGetHeight()-kinect.getHeight());
-    
-    //    mioFlow.drawReposition(0, 0);
-        mioFlow.drawReposition(mioFlow.getWidth(), 0);
-        mioFlow.drawVectors(mioFlow.getWidth(), 0);
-    //
-        mioFlow.drawFlowGridRaw(0, mioFlow.getHeight());
-//        mioFlow.drawFlowGrid(ofGetWidth()-kinect.getWidth(), ofGetHeight()-kinect.getHeight());
-    
-    
-
-    ofDrawBitmapString("Fps: " + ofToString(ofGetFrameRate()), 10, 10);
 }
 
 
@@ -367,23 +422,4 @@ void ofApp::setupOscs() {
 
      float freq8 = 220 * pow(2,(15/12.f));
      synth.setFrequency(8, freq8);
-}
-
-
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key)
-{
-    switch(key) {
-        case 'b':
-            blurOn = !blurOn;
-            break;
-        default:
-            break;
-    }
-}
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key)
-{
-    
 }
