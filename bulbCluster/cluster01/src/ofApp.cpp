@@ -119,6 +119,9 @@ void ofApp::createRandomBulbCluster() {
 
 void ofApp::initPhysicalCluster() {
     
+    // abrennec:
+    // std::map<key,value> oder std::vector<glm::vec3f>
+    // koenntest du dir mal anschauen, nur zur Info.
     vector <float> positions = {
         281, 324, 0,   // Bulb No. 1
         304, 262, 300,   // Bulb No. 2
@@ -224,6 +227,8 @@ void ofApp::update(){
     
     // COMPUTE PARTICLE POSITIONS
     
+    // abrennec:
+    // Nimm reference type vector<ofPoint>& wenn möglich.
     vector <ofPoint> * currentParticlePosition = kinectToPoints.getPointCloud();
     
 //    for(unsigned int i = 0; i < p.size(); i++){
