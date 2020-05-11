@@ -33,6 +33,16 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+    // abrennec:
+    // private?
+    // Du koenntest hier auch aus Sicht der Objektorientierung
+    // nochmal abstrahieren und bspw. ein Objekt einführen, das sich
+    // quasi um alles, was mit den Bulbs und Clustern zu tun hat,
+    // kümmert, und die Funktionalität aus ofApp noch ein wenig
+    // auslagern. Dann müsstest Du vlt auch noch etwas mehr Daten
+    // hin und her schieben und könntest üben, wie man reference types
+    // nutzt ;-) 
+    
 		particleMode currentMode;
     
         int boxSize;
