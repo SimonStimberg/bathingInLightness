@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxPDSP.h"
 #include "ofxGui.h"
-#include "StereoDelay.h"
+#include "effects.h"
 
 class ofApp : public ofBaseApp{
 
@@ -48,26 +48,12 @@ class ofApp : public ofBaseApp{
 		pdsp::ParameterAmp  			vibratoAmt; 
 		pdsp::LFO						vibratoLfo;
 
-		// pdsp::Amp           amp;
-    	// pdsp::Saturator1    drive; // distort the signal
-		// pdsp::ValueControl  amp_ctrl;
 
-
-		pdsp::DimensionChorus   chorus;       
-        
-        pdsp::Parameter chorusSpeed;
-        pdsp::Parameter chorusDepth;
-		ofParameterGroup     chorusUI;
 		ofParameterGroup     oscUI;
 
 		StereoDelay delay;
-
-
-
-		pdsp::LinearCrossfader mixL;
-		pdsp::LinearCrossfader mixR;
-		pdsp::Parameter mixAmount;
-        
+		StereoChorus chorus;
+      
         pdsp::ParameterGain  gain;
 
 
