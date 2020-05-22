@@ -13,7 +13,8 @@ void ofApp::setup(){
     // vector <int> pitches = {36, 43, 48, 55, 60, 63, 67, 70, 74, 79, 84, 87, 91, 94, 98} ;
 
     vector <int> pitches;
-    vector <int> scale = {36, 43, 48, 55, 60, 63, 67, 70, 74, 79, 84, 87, 91, 94, 98, 48, 60, 67, 72, 96} ;
+    // vector <int> scale = {36, 43, 48, 55, 60, 63, 67, 70, 74, 79, 84, 87, 91, 94, 98, 48, 60, 67, 72, 96} ;
+    vector <int> scale = {60, 63, 67, 70, 74};
     for(int i = 0; i < 52; i++) {
         pitches.push_back(scale[(int) ofRandom(0,scale.size())]);
     }
