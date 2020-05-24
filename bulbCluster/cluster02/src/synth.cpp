@@ -24,8 +24,8 @@ void PolySynth::patch() {
     for(int i=0; i<voices.size(); ++i){
 
          // connect each voice to the master gain (master bus)
-         voices[i] >> chorus.ch(0);
-         voices[i] >> chorus.ch(1);
+         voices[i].out("L") >> chorus.ch(0);
+         voices[i].out("R") >> chorus.ch(1);
      }
 
      chorus.ch(0) >> delay.ch(0) >> gain.ch(0) >> engine.audio_out(0);
@@ -91,13 +91,25 @@ void PolySynth::setUI() {
 
 void PolySynth::setVoiceLevels(vector <float> & levels) {
     if (voices.size() == levels.size()) {
-
         
-
         for( size_t i=0; i<voices.size(); ++i ){
 
             float newLevel = ofMap(ofClamp(levels[i], 0., 1.), 0., 1., 0., 0.5);
             voiceLevels[i].set(newLevel);
+        }   
+        
+    }
+
+}
+
+
+void PolySynth::setVoicePans(vector <float> & panPos) {
+    
+    if (voices.size() == panPos.size()) {   
+
+        for( size_t i=0; i<voices.size(); ++i ){
+
+            panPos[i] >> voices[i].in_pan();
         }   
         
     }
@@ -110,15 +122,17 @@ void PolySynth::setVoiceLevels(vector <float> & levels) {
 
 void PolySynth::Voice::setup( PolySynth & ui, int v, int pitch){
 
-    addModuleInput("trig", voiceTrigger);
+    addModuleInput("pan", pan.in_pan());
     addModuleInput("pitch", voicePitch);
     addModuleInput("cutoff", filter.in_cutoff() );
-    addModuleOutput("signal", voiceAmp);
+    // addModuleOutput("signal", voiceAmp);
+    addModuleOutput("L", pan.out_L() );
+    addModuleOutput("R", pan.out_R() );
 
 
     // SIGNAL PATH
     
-    mix >> filter >> voiceAmp;
+    mix >> filter >> voiceAmp >> pan;
 
     // OSC 1 - Pulse Wave
                                         osc1.out_pulse() >> mix.in_A();
@@ -165,6 +179,7 @@ void PolySynth::Voice::setup( PolySynth & ui, int v, int pitch){
     
 
         ui.oscMix >> mix.in_fade();  
+        // -1.0f >> pan.in_pan();
 }
 
 

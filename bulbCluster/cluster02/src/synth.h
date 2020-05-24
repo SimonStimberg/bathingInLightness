@@ -17,7 +17,9 @@ public:
         Voice(){}
         Voice(const Voice& other){}
         
-        void setup(PolySynth & ui, int v, int pitch);        
+        void setup(PolySynth & ui, int v, int pitch);  
+            
+        pdsp::Patchable & in_pan() { return in("pan"); }
         
 //        float meter_mod_env() const;
 //        float meter_pitch() const;
@@ -37,6 +39,7 @@ public:
         pdsp::LFO			        filterModLfo;
         pdsp::Amp                   voiceAmp;
         pdsp::LinearCrossfader      mix;
+        pdsp::Panner                pan;
         
         // pdsp::ADSR          ampEnv;
         // pdsp::ADSR          modEnv;
@@ -53,6 +56,7 @@ public:
     void patch();
     void setUI();
     void setVoiceLevels(vector <float> & levels);
+    void setVoicePans(vector <float> & panPos);
 
 
     // pdsp modules

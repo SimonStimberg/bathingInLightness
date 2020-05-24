@@ -190,6 +190,7 @@ void ofApp::initPhysicalCluster() {
     };
 
     vector <int> pitches;
+    vector <float> panPositions;
     
     
     for(int i = 0; i < positions.size(); i += 3){
@@ -199,6 +200,11 @@ void ofApp::initPhysicalCluster() {
         float y = roundf(positions[i+2] / 3 * 10) / 10;
         
         bulbCluster.push_back(bulb(ofPoint(x, y, z)));
+
+
+        // set panPosition of the note according to the x-position of the bulb
+        float pan = ofMap(x, 0.f, 200.f, -1.f, 1.f);
+        panPositions.push_back( pan );
 
 
         // add a note - choosing the pitch according to bulbs position in the cluster
@@ -250,6 +256,7 @@ void ofApp::initPhysicalCluster() {
 
 
     synth.setup( pitches );
+    synth.setVoicePans( panPositions );
     
 }
 
