@@ -14,3 +14,9 @@
 ## Cluster04
 - particles follow point cloud as attraction points and embrace the whole silhouette
 - adjustments to the graphical interface for Demo Video (Mensch und Computer 2020)
+
+## Cluster05
+- separated the synth initialization into an own function, made it generative, meaning depending on the bulb cluster
+- made the random cluster generative: an abitrary amount of bulbs can be added / optimized the random distribution (applied the paper's approach)
+- cleaned positioning confusion: now everything is oriented around the center (-halfBox, halfBox)
+- modified particle behaviour (more drag, more force -> stick closer to the silhouette)
