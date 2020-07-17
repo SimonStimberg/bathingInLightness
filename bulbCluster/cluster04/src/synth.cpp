@@ -35,7 +35,7 @@ void PolySynth::patch() {
 
      //------------SETUPS AND START AUDIO-------------
     engine.listDevices();
-    engine.setDeviceID(2); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
+    engine.setDeviceID(1); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
     engine.setup( 44100, 512, 3); 
 
 }
@@ -44,7 +44,7 @@ void PolySynth::patch() {
 void PolySynth::setUI() {
 
     gui.setup("SYNTH");
-    gui.add( gain.set("master gain", -48, -48, 12) ); 
+    gui.add( gain.set("master gain", 0, -48, 12) ); 
     gain.enableSmoothing(50.f);
     
     uiOsc.setName("oscillator control");

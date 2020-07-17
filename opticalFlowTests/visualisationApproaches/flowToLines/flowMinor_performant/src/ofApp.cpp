@@ -16,7 +16,7 @@ void ofApp::setup()
 //    ofLogNotice(ofToString(cam.listDevices()[0].formats));
     
     
-	cam.setup(320, 240);
+	cam.setup(320, 180);
     ofLogNotice(ofToString(cam.getPixelFormat()));
     
     // Set the Optical FLow Window Size
@@ -224,7 +224,7 @@ void ofApp::draw()
     
     
     // Draw the camera image
-    cam.draw(0, 20, cam.getWidth(), cam.getHeight());
+//    cam.draw(0, 20, cam.getWidth(), cam.getHeight());
     
     
     ofDrawBitmapString("Fps: " + ofToString(ofGetFrameRate()), 10, 10);

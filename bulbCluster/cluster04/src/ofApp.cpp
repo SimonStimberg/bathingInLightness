@@ -16,14 +16,19 @@ void ofApp::setup(){
     
     // GLOBAL FLAGS
     
+    drawBox = true;
     drawParticles = true;
     drawBulbs = true;
-    drawCam = true;
+    drawCam = false;
     drawSynthControls = false;
+    drawInstructions = true;
+
     bLearnBakground = true;
     attractorFound = false; // flag for attractor detection
+    attractorActive = true;
     
     currentMode = POSITIVE;
+    nextJump = 0;
     
     
     
@@ -40,7 +45,7 @@ void ofApp::setup(){
 
     kinectToPoints.setup(boxSize);
     
-    updateAttractor();
+    // updateAttractor();
     // createRandomBulbCluster();
     initPhysicalCluster();
 
@@ -71,6 +76,250 @@ void ofApp::setup(){
     
 }
 
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    
+    kinectToPoints.update();
+    
+    
+    
+    
+    
+    
+    // UPDATE ATTRACTOR
+    // update the position of the attraction point at a certain time interval
+    // since this involves the capturing of a camera image and its analysation (object recognition)
+    // better don't do so every frame ;)
+    
+//    if (lastDetection + 200 < ofGetElapsedTimeMillis()) {
+       
+//        lastDetection = ofGetElapsedTimeMillis();
+//    }
+    
+    
+    
+    // COMPUTE PARTICLE POSITIONS
+    
+    vector <ofPoint> & kinectPointCloud = kinectToPoints.getPointCloud();
+
+    updateAttractor(kinectPointCloud);
+
+    vector <ofPoint> currentParticlePosition;
+    
+   for(unsigned int i = 0; i < p.size(); i++){
+       p[i].setMode(currentMode);
+       p[i].update(boxSize);
+       currentParticlePosition.push_back(p[i].pos);
+   }
+    
+    
+    
+    // DERIVE LIGHT BULB INTENSITES
+    
+    vector <float> intensities;
+    
+    for(unsigned int i = 0; i < bulbCluster.size(); i++){
+
+        bulbCluster[i].isEngaged = attractorFound;
+        
+        intensities.push_back(bulbCluster[i].update(currentParticlePosition));
+    }
+
+    synth.setVoiceLevels(intensities);    
+    
+    // SEND INTENSITY VALUES TO ARDUINO
+    // sendToArduino(intensities);   // uncomment this line if an Arduino is connected via Serial USB
+    
+}
+
+
+
+
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    ofBackgroundGradient(ofColor(60,60,60), ofColor(10,10,10));
+    
+    ofSetColor(255);
+
+    if(drawInstructions) {
+
+        ofDrawBitmapStringHighlight(    "PRESS\n\n"
+                                        "\'X\' to show bounding box\n"
+                                        "\'P\' to show particles\n"
+                                        "\'B\' to show light bulbs\n"
+                                        "\'K\' to show Kinect point cloud\n"
+                                        "\'S\' to show synth controls\n\n"
+                                        "Framerate: " + ofToString(ofGetFrameRate()), 50, ofGetHeight() * 0.5 - 100);
+        
+    }    
+    
+    
+    
+    ofPushMatrix();
+    
+    
+    ofTranslate(ofGetWidth()*0.5, ofGetHeight()*0.5, 0); // move everything into the center of the canvas
+    
+    ofRotateYDeg(ofMap(ofGetMouseX(), 0, ofGetWidth(), -90.0, 90.0)); // rotate by mouseX-position
+    //    ofRotateXDeg(ofMap(ofGetMouseY(), 0, ofGetHeight(), 0.0, 80.0)); // rotate by mouseY-position
+    
+    
+    
+
+    
+    
+    // translate everything half a box
+    // in oder to calculate from 0 to 100 not from -50 to 50
+    
+    ofTranslate(-boxSize*0.5, -boxSize*0.5, -boxSize*0.5);
+    
+    
+    
+    // DRAW PARTICLES
+    
+    if(drawParticles){
+       for(unsigned int i = 0; i < p.size(); i++){
+           p[i].draw();
+       }
+    }
+    
+
+
+    // DRAW ATTRACTOR
+
+    if(drawParticles){
+        ofSetColor(0, 255, 0);
+        ofDrawSphere(singleAttractor, 10.0);
+    }
+    
+
+
+    // DRAW BULB CLUSTER
+    
+    if(drawBulbs){
+        for(unsigned int i = 0; i < bulbCluster.size(); i++){
+            bulbCluster[i].draw();
+        }
+    }
+    
+    
+    
+    // DRAW POINT CLOUD FROM KINECT
+    if(drawCam) {
+        ofSetColor(255, 0, 0);
+        kinectToPoints.draw();
+    }
+    
+    
+    
+
+    ofTranslate(boxSize*0.5, boxSize*0.5, boxSize*0.5);
+
+    // DRAW BOUNDING BOX
+    
+    if(drawBox){
+        ofNoFill();
+        ofSetColor(100);
+        ofDrawBox(boxSize);
+        ofFill();
+    }
+    
+    
+    
+    ofPopMatrix();
+    // ofTranslate(ofGetWidth() - 300, 0);
+
+    if(drawCam) {
+        kinectToPoints.drawCam(50, ofGetHeight() * 0.5);
+
+    }
+
+
+    if(drawSynthControls) {
+        synth.gui.setPosition(ofGetWidth() - 370, 70);
+        synth.gui.draw();
+    }
+    
+}
+
+
+
+
+
+//--------------------------------------------------------------
+// UPDATE ATTRACTOR POSITION
+
+void ofApp::updateAttractor(vector <ofPoint> & pointCloud){
+           
+        
+    if(pointCloud.size() > 1) {
+        
+        attractorFound = true;
+
+        singleAttractor.set(1000, 1000, 1000);
+
+        
+        float scaleFactor = 1.0f;
+
+        // if there are more attraction points than particles, calculate a scale factor to skip some points
+        // if not, the particles will only embrace the first 100 (for instance) points and leave out the lower ones 
+        if( pointCloud.size() > p.size() ) {
+            scaleFactor = 1.0f * pointCloud.size() / p.size();
+        }
+
+
+        for(unsigned int i = 0; i < p.size(); i++){
+            
+            // round in order to convert the scaled index to an integer value
+            // modulo -> in case there are more particles than attraction points
+            int index = int( roundf( i * scaleFactor ) ) % pointCloud.size();
+            // int index = i % pointCloud.size();
+
+            p[i].setAttractor(&pointCloud[index]);
+
+        }
+
+        // ofLogNotice("scaleFactor: " + ofToString(scaleFactor));
+        
+        
+
+    } else {
+
+        attractorFound = false;
+        
+        if(nextJump < ofGetElapsedTimeMillis()) {
+            float r = boxSize/2 * 0.75;
+            float theta = ofRandom(2 * M_PI);
+            float arpha = ofRandom(M_PI);
+            
+            float x = boxSize * 0.5 + r * cos(theta) * sin(arpha);
+            float y = boxSize * 0.5 + r * sin(theta) * sin(arpha);
+            float z = boxSize * 0.5 + r * cos(arpha);
+            
+            singleAttractor.set(x, y, z);
+            
+            nextJump = ofGetElapsedTimeMillis() + (int)ofRandom(2000, 6000);
+
+            for(unsigned int i = 0; i < p.size(); i++){
+                p[i].setAttractor(&singleAttractor);
+            }
+        }
+
+    }               
+
+}
 
 
 
@@ -262,255 +511,6 @@ void ofApp::initPhysicalCluster() {
 
 
 
-
-
-
-//--------------------------------------------------------------
-void ofApp::update(){
-    
-    
-    kinectToPoints.update();
-    
-    
-    
-    
-    
-    
-    // UPDATE ATTRACTOR
-    // update the position of the attraction point at a certain time interval
-    // since this involves the capturing of a camera image and its analysation (object recognition)
-    // better don't do so every frame ;)
-    
-//    if (lastDetection + 200 < ofGetElapsedTimeMillis()) {
-//        updateAttractor();
-//        lastDetection = ofGetElapsedTimeMillis();
-//    }
-    
-    
-    
-    // COMPUTE PARTICLE POSITIONS
-    
-    vector <ofPoint> & currentParticlePosition = kinectToPoints.getPointCloud();
-    
-//    for(unsigned int i = 0; i < p.size(); i++){
-//        p[i].setMode(currentMode);
-//        p[i].update(boxSize);
-//        currentParticlePosition.push_back(p[i].pos);
-//    }
-    
-    
-    
-    // DERIVE LIGHT BULB INTENSITES
-    
-    vector <float> intensities;
-    
-    for(unsigned int i = 0; i < bulbCluster.size(); i++){
-        if(currentMode == NEGATIVE) {
-            bulbCluster[i].isAngry = true;
-        } else {
-            bulbCluster[i].isAngry = false;
-        }
-        
-        intensities.push_back(bulbCluster[i].update(currentParticlePosition));
-    }
-
-    synth.setVoiceLevels(intensities);    
-    
-    // SEND INTENSITY VALUES TO ARDUINO
-    // sendToArduino(intensities);   // uncomment this line if an Arduino is connected via Serial USB
-    
-}
-
-
-
-
-
-//--------------------------------------------------------------
-void ofApp::draw(){
-    
-    ofBackgroundGradient(ofColor(60,60,60), ofColor(10,10,10));
-    
-    ofSetColor(255);
-    ofDrawBitmapStringHighlight(    "PRESS\n\n"
-                                    "\'X\' to show bounding box\n"
-                                    "\'B\' to show light bulbs\n"
-                                    "\'K\' to show Kinect point cloud\n"
-                                    "\'S\' to show synth controls\n\n"
-                                    "Framerate: " + ofToString(ofGetFrameRate()), 50, ofGetHeight() * 0.5 - 100);
-    
-    
-    
-    
-    
-    ofPushMatrix();
-    
-    
-    ofTranslate(ofGetWidth()*0.5, ofGetHeight()*0.5, 0); // move everything into the center of the canvas
-    
-    ofRotateYDeg(ofMap(ofGetMouseX(), 0, ofGetWidth(), -90.0, 90.0)); // rotate by mouseX-position
-    //    ofRotateXDeg(ofMap(ofGetMouseY(), 0, ofGetHeight(), 0.0, 80.0)); // rotate by mouseY-position
-    
-    
-    
-    // DRAW BOUNDING BOX
-    
-    if(drawParticles){
-        ofNoFill();
-        ofSetColor(255,0,0);
-        ofDrawBox(boxSize);
-        ofFill();
-    }
-    
-    
-    // translate everything half a box
-    // in oder to calculate from 0 to 100 not from -50 to 50
-    
-    ofTranslate(-boxSize*0.5, -boxSize*0.5, -boxSize*0.5);
-    
-    
-    
-    // DRAW PARTICLES
-    
-//    if(drawParticles){
-//        for(unsigned int i = 0; i < p.size(); i++){
-//            p[i].draw();
-//        }
-//    }
-    
-    
-    
-    // DRAW BULB CLUSTER
-    
-    if(drawBulbs){
-        for(unsigned int i = 0; i < bulbCluster.size(); i++){
-            bulbCluster[i].draw();
-        }
-    }
-    
-    
-    
-    // DRAW POINT CLOUD FROM KINECT
-    if(drawCam) {
-        kinectToPoints.draw();
-    }
-    
-    
-    
-    // DRAW ATTRACTOR
-    
-//    if(attractorFound) {
-//        ofSetColor(255, 0, 0);
-//    } else {
-//        ofSetColor(0, 255, 0);
-//    }
-//    ofDrawSphere(singleAttractor, 10.0);
-    
-    
-    
-    
-    ofPopMatrix();
-    // ofTranslate(ofGetWidth() - 300, 0);
-
-
-    if(drawSynthControls) {
-        synth.gui.setPosition(ofGetWidth() - 300, 20);
-        synth.gui.draw();
-    }
-    
-}
-
-
-
-
-
-//--------------------------------------------------------------
-// UPDATE ATTRACTOR POSITION
-
-void ofApp::updateAttractor(){
-    
-    // get result from the cameras object detection
-//    detectionPoint = ofPoint(detector.getPosition());
-//
-//    // if the detected position is in a reasonable range (hence a person has been detected)
-//    // map the position to the attractor point to make the particles follow its position
-//
-//    if(detectionPoint.y > 0.0 && detectionPoint.x > 0.0 && detectionPoint.x < 9) {
-//
-//        attractorFound = true;
-//
-//        // map the X + Y position on a virtual hemisphere facing the front side of the bounding box
-//        // hence moving in front of the camera results in the particles follow your movement
-//        float r = boxSize/2 * 0.8;
-//        float theta = ofMap(detectionPoint.x, 1.0, 0, (0), (M_PI));
-//        float arpha = ofMap(detectionPoint.y, 1.0, 0, (M_PI * 0.25), (M_PI * 0.75));
-//
-//        float x = boxSize * 0.5 + r * cos(theta) * sin(arpha);
-//        float z = boxSize * 0.5 + r * sin(theta) * sin(arpha);
-//        float y = boxSize * 0.5 + r * cos(arpha);
-//
-//
-//        // if the mood is negative add some noise to the position to make the particles move more unsteady
-//        if(currentMode == NEGATIVE) {
-//            z = z - ofSignedNoise(x * 10, ofGetElapsedTimef() * 0.7) * 12.0;
-//            x = x + (ofSignedNoise(y * 10, ofGetElapsedTimef() * 0.7) - 0.5) * 12.0;
-//        }
-//
-//
-//        singleAttractor.set(x, y, z);
-//
-//        //        ofLog(OF_LOG_NOTICE, "detected: " + ofToString(detectionPoint));
-//
-//    } else {
-        
-        attractorFound = false;
-        
-        
-        // if no person has been detected
-        // create a new random attraction point if in POSITIVE mood
-        // at a random time interval
-        
-        if(currentMode == POSITIVE){
-            
-            if(nextJump < ofGetElapsedTimeMillis()) {
-                float r = boxSize/2 * 0.75;
-                float theta = ofRandom(2 * M_PI);
-                float arpha = ofRandom(M_PI);
-                
-                float x = boxSize * 0.5 + r * cos(theta) * sin(arpha);
-                float y = boxSize * 0.5 + r * sin(theta) * sin(arpha);
-                float z = boxSize * 0.5 + r * cos(arpha);
-                
-                singleAttractor.set(x, y, z);
-                
-                nextJump = ofGetElapsedTimeMillis() + (int)ofRandom(2000, 6000);
-            }
-            
-            
-            // if in NEUTRAL or NEGATIVE mood "deactivate" the attractor by setting its position far away outside the canvas
-            
-        } else if(currentMode == NEUTRAL) {
-            
-            singleAttractor.set(1000, 1000, 1000);
-            
-        } else if(currentMode == NEGATIVE) {
-            
-            singleAttractor.set(1000, 1000, 1000);
-            
-        }
-//    }
-    
-    
-    // hand over the new attractor position to every particle
-    
-    for(unsigned int i = 0; i < p.size(); i++){
-        p[i].setAttractor(&singleAttractor);
-    }
-}
-
-
-
-
-
 //--------------------------------------------------------------
 // SENDS LIGHT BULB INTENSITIES TO ARDUINO VIA SERIAL
 
@@ -569,6 +569,9 @@ void ofApp::sendToArduino(vector <float> &intensities) {
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if( key == 'x'){
+        drawBox = !drawBox;
+    }
+    if( key == 'p'){
         drawParticles = !drawParticles;
     }
     if( key == 'b'){
@@ -580,6 +583,13 @@ void ofApp::keyPressed(int key){
     if( key == 's'){
         drawSynthControls = !drawSynthControls;        
     }
+    if( key == 'a'){
+        attractorActive = !attractorActive;        
+    }
+    if( key == ' '){
+        drawInstructions = !drawInstructions;        
+    }
+
 }
 
 

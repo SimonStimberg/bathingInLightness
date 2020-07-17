@@ -35,7 +35,7 @@ void PolySynth::patch() {
 
      //------------SETUPS AND START AUDIO-------------
     engine.listDevices();
-    engine.setDeviceID(2); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
+    engine.setDeviceID(1); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
     engine.setup( 44100, 512, 3); 
 
 }

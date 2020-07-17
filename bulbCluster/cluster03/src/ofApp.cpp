@@ -18,12 +18,14 @@ void ofApp::setup(){
     
     drawParticles = true;
     drawBulbs = true;
-    drawCam = true;
+    drawCam = false;
     drawSynthControls = false;
     bLearnBakground = true;
     attractorFound = false; // flag for attractor detection
+    attractorActive = true;
     
     currentMode = POSITIVE;
+    nextJump = 0;
     
     
     
@@ -282,7 +284,7 @@ void ofApp::update(){
     // better don't do so every frame ;)
     
 //    if (lastDetection + 200 < ofGetElapsedTimeMillis()) {
-//        updateAttractor();
+       updateAttractor();
 //        lastDetection = ofGetElapsedTimeMillis();
 //    }
     
@@ -290,13 +292,15 @@ void ofApp::update(){
     
     // COMPUTE PARTICLE POSITIONS
     
-    vector <ofPoint> & currentParticlePosition = kinectToPoints.getPointCloud();
+    // vector <ofPoint> & currentParticlePosition = kinectToPoints.getPointCloud();
+
+    vector <ofPoint> currentParticlePosition;
     
-//    for(unsigned int i = 0; i < p.size(); i++){
-//        p[i].setMode(currentMode);
-//        p[i].update(boxSize);
-//        currentParticlePosition.push_back(p[i].pos);
-//    }
+   for(unsigned int i = 0; i < p.size(); i++){
+       p[i].setMode(currentMode);
+       p[i].update(boxSize);
+       currentParticlePosition.push_back(p[i].pos);
+   }
     
     
     
@@ -371,11 +375,11 @@ void ofApp::draw(){
     
     // DRAW PARTICLES
     
-//    if(drawParticles){
-//        for(unsigned int i = 0; i < p.size(); i++){
-//            p[i].draw();
-//        }
-//    }
+   if(drawParticles){
+       for(unsigned int i = 0; i < p.size(); i++){
+           p[i].draw();
+       }
+   }
     
     
     
@@ -397,13 +401,11 @@ void ofApp::draw(){
     
     
     // DRAW ATTRACTOR
-    
-//    if(attractorFound) {
-//        ofSetColor(255, 0, 0);
-//    } else {
-//        ofSetColor(0, 255, 0);
-//    }
-//    ofDrawSphere(singleAttractor, 10.0);
+
+    if(drawParticles){
+        ofSetColor(0, 255, 0);
+        ofDrawSphere(singleAttractor, 10.0);
+    }
     
     
     
@@ -462,14 +464,15 @@ void ofApp::updateAttractor(){
 //
 //    } else {
         
-        attractorFound = false;
+        // attractorFound = false;
         
         
         // if no person has been detected
         // create a new random attraction point if in POSITIVE mood
         // at a random time interval
         
-        if(currentMode == POSITIVE){
+        // if(currentMode == POSITIVE){
+        if(attractorActive){
             
             if(nextJump < ofGetElapsedTimeMillis()) {
                 float r = boxSize/2 * 0.75;
@@ -484,19 +487,23 @@ void ofApp::updateAttractor(){
                 
                 nextJump = ofGetElapsedTimeMillis() + (int)ofRandom(2000, 6000);
             }
+
+        } else {
+            singleAttractor.set(1000, 1000, 1000);
+        }
             
             
             // if in NEUTRAL or NEGATIVE mood "deactivate" the attractor by setting its position far away outside the canvas
             
-        } else if(currentMode == NEUTRAL) {
+        // } else if(currentMode == NEUTRAL) {
             
-            singleAttractor.set(1000, 1000, 1000);
+        //     singleAttractor.set(1000, 1000, 1000);
             
-        } else if(currentMode == NEGATIVE) {
+        // } else if(currentMode == NEGATIVE) {
             
-            singleAttractor.set(1000, 1000, 1000);
+        //     singleAttractor.set(1000, 1000, 1000);
             
-        }
+        // }
 //    }
     
     
@@ -580,6 +587,10 @@ void ofApp::keyPressed(int key){
     if( key == 's'){
         drawSynthControls = !drawSynthControls;        
     }
+    if( key == 'a'){
+        attractorActive = !attractorActive;        
+    }
+
 }
 
 
