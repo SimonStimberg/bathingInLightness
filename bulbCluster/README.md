@@ -20,3 +20,8 @@
 - made the random cluster generative: an abitrary amount of bulbs can be added / optimized the random distribution (applied the paper's approach)
 - cleaned positioning confusion: now everything is oriented around the center (-halfBox, halfBox)
 - modified particle behaviour (more drag, more force -> stick closer to the silhouette)
+
+## Cluster06
+- tested and made adjustments to the settings for a bigger setup
+- for a cloud with a diameter of 1,5m (= 500px) and 200 lamps
+- adjustments to the cluster generation algorithm (equalisation of the distribution (too much density in the center)) 
