@@ -21,6 +21,13 @@
 - cleaned positioning confusion: now everything is oriented around the center (-halfBox, halfBox)
 - modified particle behaviour (more drag, more force -> stick closer to the silhouette)
 
+## Cluster05b
+- modifications for Mensch und Computer Live Demo presentation
+  - switch for particle behaviour (physics) depending on if a camera input is given or the swarm is alone (used CurrentMode for this)
+  - slight interface adjustments 
+    - kinect point cloud and depth image can be switched seperately
+  - depth image output clipping according to the clipping of the point cloud
+
 ## Cluster06
 - tested and made adjustments to the settings for a bigger setup
 - for a cloud with a diameter of 1,5m (= 500px) and 200 lamps
