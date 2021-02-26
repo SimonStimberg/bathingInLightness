@@ -32,6 +32,8 @@ private:
     int w;
     int h;
     int worldSize;
+    int nearClip;
+    int clippingDepth;
     
 
 };

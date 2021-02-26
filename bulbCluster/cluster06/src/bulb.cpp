@@ -19,6 +19,9 @@ bulb::bulb(ofPoint initPosition){
     pos = initPosition;
     intensity = 0.0;
     isEngaged = false;
+
+    scanRadius = 70.0;
+    weightIntensity = 0.4;
 }
 
 
@@ -39,9 +42,9 @@ float bulb::update(const vector <ofPoint> & particlePositions) {
         float dist = delta.length();
         
         // if particle in check-radius: normalize distance and add it to intensity
-        if(dist < 50.0 ) {
+        if(dist < scanRadius ) {
             
-            dist = ofMap(dist, 0., 50., 0.8, 0.01);
+            dist = ofMap(dist, 0., scanRadius, weightIntensity, 0.01);
             newIntensity += dist;
         }
         
@@ -51,7 +54,7 @@ float bulb::update(const vector <ofPoint> & particlePositions) {
     if(isEngaged) {
         newIntensity = ofClamp(newIntensity, 0., 1.);
     } else {
-        newIntensity = ofClamp(newIntensity, 0., 0.8);
+        newIntensity = ofClamp(newIntensity, 0., 1.);
     }
     
     // newIntensity = ofClamp(newIntensity, 0., 1.);
@@ -77,8 +80,19 @@ void bulb::draw(){
     
     intensity = ofClamp(intensity, 0., 1.); // for safety
 
-    // draw bulb with its brightness according to the intensity
+    // draw bulb with its brightness according to the intensity 
     ofSetColor((int)(round(intensity*255)));
     ofDrawSphere(pos, 8.0);
     
+}
+
+
+void bulb::drawCable(const int & worldSize) {
+
+    ofSetColor(0);
+    ofSetLineWidth(2.35);      
+    ofDrawLine(pos, ofPoint(pos.x, -worldSize * 0.5, pos.z));
+    ofSetLineWidth(1);   
+    ofDrawCylinder(pos.x, pos.y - 14, pos.z, 7, 16);
+
 }

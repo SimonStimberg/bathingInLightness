@@ -18,11 +18,12 @@ void ofApp::setup(){
     // GLOBAL FLAGS
     
     drawBox = true;
-    drawParticles = true;
+    drawParticles = false;
     drawBulbs = true;
+    drawKinect = false;
     drawCam = false;
     drawSynthControls = false;
-    drawInstructions = true;
+    drawInstructions = false;
 
     bLearnBakground = true;
     attractorFound = false; // flag for attractor detection
@@ -164,6 +165,7 @@ void ofApp::draw(){
                                         "\'P\' to show particles\n"
                                         "\'B\' to show light bulbs\n"
                                         "\'K\' to show Kinect point cloud\n"
+                                        "\'C\' to show depth camera image\n"
                                         "\'S\' to show synth controls\n\n"
                                         "Framerate: " + ofToString(ofGetFrameRate()), 50, ofGetHeight() * 0.5 - 100);
         
@@ -207,6 +209,7 @@ void ofApp::draw(){
     
     if(drawBulbs){
         for(unsigned int i = 0; i < bulbCluster.size(); i++){
+            bulbCluster[i].drawCable(boxSize);
             bulbCluster[i].draw();
         }
     }
@@ -214,7 +217,7 @@ void ofApp::draw(){
     
     
     // DRAW POINT CLOUD FROM KINECT
-    if(drawCam) {
+    if(drawKinect) {
         ofSetColor(255, 0, 0);
         kinectToPoints.draw();
     }
@@ -236,7 +239,8 @@ void ofApp::draw(){
     // ofTranslate(ofGetWidth() - 300, 0);
 
     if(drawCam) {
-        kinectToPoints.drawCam(50, ofGetHeight() * 0.5);
+        ofSetColor(255);
+        kinectToPoints.drawCam(ofGetWidth() - 340, ofGetHeight() - 140);
 
     }
 
@@ -245,7 +249,7 @@ void ofApp::draw(){
         synth.gui.setPosition(ofGetWidth() - 370, 70);
         synth.gui.draw();
     }
-    
+     
 }
 
 
@@ -261,6 +265,7 @@ void ofApp::updateAttractor(vector <ofPoint> & pointCloud){
     if(pointCloud.size() > 1) {
         
         attractorFound = true;
+        currentMode = POSITIVE;
 
         singleAttractor.set(1000, 1000, 1000);
 
@@ -292,6 +297,7 @@ void ofApp::updateAttractor(vector <ofPoint> & pointCloud){
     } else {
 
         attractorFound = false;
+        currentMode = NEGATIVE;
         
         if(nextJump < ofGetElapsedTimeMillis()) {
             float r = boxSize/2 * 0.75;
@@ -341,7 +347,7 @@ void ofApp::createRandomBulbCluster(int bulbNum) {
         // hacky approach, has to be refined! 
         // (to counteract clustering in the center at high bulb quantities
         // before it was just +I (to spread the distribution in the outer layers - seems to be to much though)
-        float nonLinearIncrement = i * 0.9 + (bulbNum - i) * 0.1;   
+        float nonLinearIncrement = i * 0.8 + (bulbNum - i) * 0.2;
         
         float r = scalingFactor * sqrt(i) + nonLinearIncrement;
         float angle = (137.508 * i) * (M_PI / 180);
@@ -375,6 +381,7 @@ void ofApp::createRandomBulbCluster(int bulbNum) {
 
 
         bulbCluster.push_back(bulb(ofPoint(x, y, z)));
+        ofLogNotice("n" + ofToString(i) + ": " + ofToString(r));
     }
     
 }
@@ -607,8 +614,11 @@ void ofApp::keyPressed(int key){
     if( key == 'b'){
         drawBulbs = !drawBulbs;
     }
-    if( key == 'k'){
+    if( key == 'c'){
         drawCam = !drawCam;
+    }
+    if( key == 'k'){
+        drawKinect = !drawKinect;
     }
     if( key == 's'){
         drawSynthControls = !drawSynthControls;        

@@ -22,6 +22,7 @@ class bulb{
         // member functions
         float update(const vector <ofPoint> & particlePositions);
         void draw();
+        void drawCable(const int & worldSize);
         ofPoint & getPosition() { return pos; }
     
         bool isEngaged;
@@ -31,5 +32,8 @@ class bulb{
     
         ofPoint pos;
         float intensity;
+        float scanRadius;
+        float weightIntensity;
+
     
 };

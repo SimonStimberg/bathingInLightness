@@ -14,17 +14,24 @@ kinectHandler::kinectHandler(){
 }
 
 void kinectHandler::setup(int size) {
-    
+
+
+    nearClip = 800;     // set the near clipping plane in mm
+    clippingDepth = 1100;   // set the clipping depth in mm (near clipping + depth = far clipping)
+
+
     ofSetLogLevel(OF_LOG_VERBOSE);
     
         // enable depth->video image calibration
-        kinect.setRegistration(false);
+        kinect.setRegistration(true);
         
-       kinect.init();
+    //    kinect.init();
         //kinect.init(true); // shows infrared instead of RGB video image
-        // kinect.init(false, false); // disable video image (faster fps)
+        kinect.init(false, false); // disable video image (faster fps)
         
         kinect.open();        // opens first available kinect
+
+        kinect.setDepthClipping(nearClip, nearClip + clippingDepth);
   
         ofLogNotice("Kinect Dimensions: " + ofToString(kinect.getWidth()) + "x" + ofToString(kinect.getHeight()));
 
@@ -55,13 +62,11 @@ void kinectHandler::update() {
         pointCloud.clear();
 
         int step = 20;
-        int nearClip = 500;
-        int farClip = nearClip + 1500;
-        float scaleFactor = 0.4;
+        float scaleFactor = 0.3;
         
         for(int y = 0; y < h; y += step) {
             for(int x = 0; x < w; x += step) {
-                if(kinect.getDistanceAt(x, y) > nearClip && kinect.getDistanceAt(x, y) < farClip ) {
+                if(kinect.getDistanceAt(x, y) > nearClip && kinect.getDistanceAt(x, y) < (nearClip + clippingDepth) ) {
                     
                     ofPoint newPoint = kinect.getWorldCoordinateAt(x, y);
                                       
@@ -71,13 +76,15 @@ void kinectHandler::update() {
                     newPoint *= scaleFactor;    // resize to fit simulation
                     
                     // shift to match coordinates of other components
-                    newPoint.z -= worldSize * 0.5;
+                    newPoint.z -= worldSize * 0.25;
                     // newPoint.x += worldSize*0.5;
                     // newPoint.y += worldSize*0.5;
                     
                     float memory = newPoint.z;
                     newPoint.z = newPoint.y;
                     newPoint.y = memory;
+
+                    newPoint.rotate(-35, 0, 0);
 
                     pointCloud.push_back(newPoint);
     //                ofLogNotice("found point at: " + ofToString(newPoint));

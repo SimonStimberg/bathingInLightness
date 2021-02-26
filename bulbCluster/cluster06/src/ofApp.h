@@ -80,6 +80,7 @@ class ofApp : public ofBaseApp{
         bool drawBox;
         bool drawParticles;
         bool drawBulbs;
+        bool drawKinect;
         bool drawCam;
         bool drawSynthControls;
         bool drawInstructions;
