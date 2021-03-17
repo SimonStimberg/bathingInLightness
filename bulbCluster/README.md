@@ -32,3 +32,27 @@
 - tested and made adjustments to the settings for a bigger setup
 - for a cloud with a diameter of 1,5m (= 500px) and 200 lamps
 - adjustments to the cluster generation algorithm (equalisation of the distribution (too much density in the center)) 
+
+## Cluster07
+- adjustments for Zönoteka exhibition
+- iteration of version Cluster05b
+- adjusted bulb position values
+- dismiss klinect points if they are outside the bounding box / don't allocate space for point vector if kinect not connected
+
+## Cluster07b
+- Implementation of Boid Swarm system
+- customized the boid algorithm
+  - introduced a scale factor which scales the dimensions of the system  
+    so that in small worldsizes the flock can become smaller too, to avoid the "shark in the bottle"
+  - added a getPosition function and a draw/drawScaled function
+- introduced a check radius variable for the bulbs -> important to adjust the sensitivity
+- changed baud rate to 38400 and refresh rate to 20ms
+- added attraction according to the kinect points (tweaked the boid class for each boid being attracted by a different point)
+
+## Cluster07c
+- Iteration of 7b
+- direct mapping of the kinect points and boids at the same time
+
+## Cluster08
+- Implementation of Skeleton Tracker
+- changes/replacements in kinect class to implement the openNI stuff for tracking
