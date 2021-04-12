@@ -53,6 +53,19 @@
 - Iteration of 7b
 - direct mapping of the kinect points and boids at the same time
 
+## Cluster07d
+- tilted camera implementation for installation setup
+- light intensity as well controls filter cutoff frequency of the oscillator (changes made only to the synth files)
+
+## Cluster07e
+- using position vector in flock class to stor positions and distribute them via a reference
+- tydied up files in creating subfolders for the different class files
+- created a bulb cluster class to handle all of the bulb operations
+
+## Cluster07f
+- rectangular world size implemented
+  - adjusted parameters correspondingly - also the creation for a random bulb cluster
+
 ## Cluster08
 - Implementation of Skeleton Tracker
 - changes/replacements in kinect class to implement the openNI stuff for tracking
