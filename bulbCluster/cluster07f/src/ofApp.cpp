@@ -11,7 +11,7 @@ void ofApp::setup(){
     // the dimensions of the bounding box the installation lives in
     worldSize.x = 600;      // width in mm
     worldSize.z = 600;
-    worldSize.y = 960;      // height in mm
+    worldSize.y = 600;      // height in mm     / 960 ~ golden ratio 
 
 
     worldSize /= 3;     // to convert the real world measurements into simulation space
@@ -33,12 +33,13 @@ void ofApp::setup(){
     drawKinect = false;
     drawSynthControls = false;
     drawInstructions = true;
+    testSwitch = true;
 
 
 
     
-    // bulbCluster.setup(worldSize);  // use this to initialize a physical cluster with hard-coded positions
-    bulbCluster.setup(worldSize, numberOfBulbs);  // use this to create a random cluster
+    bulbCluster.setup(worldSize);  // use this to initialize a physical cluster with hard-coded positions
+    // bulbCluster.setup(worldSize, numberOfBulbs);  // use this to create a random cluster
 
     kinectToPoints.setup(worldSize);
 
@@ -53,7 +54,7 @@ void ofApp::setup(){
 
     flock.scale = 3.0; // scale the system: relation worldsize to boidsize
 	flock.setBounds(-worldSize.x*0.5, -worldSize.y*0.5, -worldSize.z*0.5,   worldSize.x*0.5, worldSize.y*0.5, worldSize.z*0.5);
-	flock.setBoundmode(0)->setDt(3.0);    // some multiplicator affecting speed and forces -> works good if it stays close to the scale value
+	flock.setBoundmode(0)->setDt(2.5);    // some multiplicator affecting speed and forces -> works good if it stays close to the scale value
 
     // ADJUST BOID PARAMETERS
     // flock.setCohesion(25.0f);
@@ -101,9 +102,14 @@ void ofApp::update(){
     // HAND POINT CLOUD TO FLOCK AS ATTRACTION POINTS AND UPDATE
 
     flock.clearAttrPts();
-    for (unsigned int i = 0; i < kinectPointCloud.size(); i++) {
-        // x, y, z, force, acttraction distance
-        flock.addAttractionPoint(kinectPointCloud[i].x, kinectPointCloud[i].y, kinectPointCloud[i].z, 250 , 600);
+    if (kinectPointCloud.size() > 1) {
+        for (unsigned int i = 0; i < kinectPointCloud.size(); i++) {
+            // x, y, z, force, acttraction distance
+            flock.addAttractionPoint(kinectPointCloud[i].x, kinectPointCloud[i].y, kinectPointCloud[i].z, 250 , 600);
+        }
+    } else {
+        // add a soft attraction Point in the center to reward the swarm for staying away from the corners
+        // if (testSwitch) { flock.addAttractionPoint(0, 0, 0, 0.5, 600); }    
     }
 
     flock.update();
@@ -387,6 +393,9 @@ void ofApp::keyPressed(int key){
     }
     if( key == 'm'){
         kinectToPoints.setTiltAngle(0);
+    }
+    if( key == 't'){
+        testSwitch = !testSwitch;
     }
 
 

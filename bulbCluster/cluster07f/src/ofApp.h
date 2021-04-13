@@ -60,6 +60,7 @@ class ofApp : public ofBaseApp{
         bool drawSynthControls;
         bool drawInstructions;
         bool drawKinect;
+        bool testSwitch;
     
     	
 };

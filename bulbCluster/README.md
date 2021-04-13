@@ -65,6 +65,7 @@
 ## Cluster07f
 - rectangular world size implemented
   - adjusted parameters correspondingly - also the creation for a random bulb cluster
+- added a attraction point in the center to award the swarm for staying more in the center
 
 ## Cluster08
 - Implementation of Skeleton Tracker
