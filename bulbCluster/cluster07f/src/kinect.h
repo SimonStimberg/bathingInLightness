@@ -8,6 +8,9 @@
 #include "ofMain.h"
 #include "ofxKinect.h"
 
+// #define SAFETY_MODE
+
+
 class kinectHandler{
     
 public:
@@ -23,6 +26,7 @@ public:
     void drawCam(int x, int y);
     vector<ofPoint> & getPointCloud();
     void setTiltAngle(int angle) { kinect.setCameraTiltAngle(angle); }
+    void switchLEDon(bool switcher);
        
     
 private:

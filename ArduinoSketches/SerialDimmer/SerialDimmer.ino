@@ -5,7 +5,7 @@
 
 const int bulbNum = 52;
 const int dimMIN = 5;
-const int dimMAX = 45;
+const int dimMAX = 60;
 
 
 const int outputPins[52] = {

@@ -1,0 +1,100 @@
+
+
+--------------------------------------- 2021-04-14-16-39-39-867
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+[Unkown API: 2] Apple Inc.: HDMI [in:0 out:6]
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-14-16-40-30-934
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+[Unkown API: 2] Apple Inc.: HDMI [in:0 out:6]
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-14-16-41-17-233
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+[Unkown API: 2] Apple Inc.: HDMI [in:0 out:6]
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-14-16-42-07-313
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+[Unkown API: 2] Apple Inc.: HDMI [in:0 out:6]
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps

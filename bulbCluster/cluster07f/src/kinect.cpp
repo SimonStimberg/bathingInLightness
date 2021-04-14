@@ -28,19 +28,35 @@ void kinectHandler::setup(ofVec3f size) {
     //    kinect.init();
         //kinect.init(true); // shows infrared instead of RGB video image
         kinect.init(false, false); // disable video image (faster fps)
-        
+
         kinect.open();        // opens first available kinect
+
+
+        #ifdef SAFETY_MODE
+            ofLogNotice("SAFETY MODE ON. Reconnecting Kinect...");
+
+            ofSleepMillis(100);
+            kinect.close();
+            ofSleepMillis(100);
+            kinect.open();
+        #endif
+
+
+
+
 
         kinect.setDepthClipping(nearClip, nearClip + clippingDepth);
   
         ofLogNotice("Kinect Dimensions: " + ofToString(kinect.getWidth()) + "x" + ofToString(kinect.getHeight()));
 
         // if (kinect.getCurrentCameraTiltAngle() != 30) { kinect.setCameraTiltAngle(30); }
-        // kinect.setLed(ofxKinect::LED_OFF);
+        
         ofLogNotice("Current Tilt Angle: " + ofToString(kinect.getCurrentCameraTiltAngle()));
 
 
     ofSetLogLevel(OF_LOG_NOTICE);
+
+    if(kinect.isDeviceConnected(0)) { ofLogNotice("dev connected!!!"); }
 
     
     // allocate memory for a certain amount of points
@@ -127,6 +143,14 @@ vector<ofPoint> & kinectHandler::getPointCloud() {
     return pointCloud;
 }
 
+
+void kinectHandler::switchLEDon(bool switcher) {
+    if(switcher) {
+        kinect.setLed(ofxKinect::LED_DEFAULT);
+    } else {
+        kinect.setLed(ofxKinect::LED_OFF);
+    }    
+}
 
 
 void kinectHandler::exit() {

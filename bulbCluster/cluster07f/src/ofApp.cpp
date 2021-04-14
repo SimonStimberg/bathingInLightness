@@ -4,8 +4,13 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+
+    // ofLogToFile("logFile.txt", true);
     
+    ofSetFrameRate(60);
     ofSetVerticalSync(true);
+    ofBackground(10, 10, 10);
+    
     
     
     // the dimensions of the bounding box the installation lives in
@@ -21,6 +26,16 @@ void ofApp::setup(){
     int num = 100; // amount of Particles
     refreshRate = 20; // interval sending to Arduino in Milliseconds (40ms = "25fps" -> 1000 / 25)
     int numberOfBulbs = 52;     // has only effect on the creation of the random cluster
+
+    maxIntensityKinect = 0.8;
+    maxIntensityFlock  = 0.55;
+
+    // float brightnessFactor = 0.75;
+
+
+
+    // maxIntensityKinect *= brightnessFactor;
+    // maxIntensityFlock  *= brightnessFactor;
     
     
     
@@ -30,9 +45,10 @@ void ofApp::setup(){
     drawParticles = true;
     drawBulbs = true;
     drawCam = true;
-    drawKinect = false;
-    drawSynthControls = false;
-    drawInstructions = true;
+    drawKinect = true;
+    drawSynthControls = true;
+    drawInstructions = false;
+    kinectLEDon = true;
     testSwitch = true;
 
 
@@ -42,6 +58,7 @@ void ofApp::setup(){
     // bulbCluster.setup(worldSize, numberOfBulbs);  // use this to create a random cluster
 
     kinectToPoints.setup(worldSize);
+    kinectToPoints.switchLEDon(kinectLEDon);
 
     initSynth();
 
@@ -74,9 +91,6 @@ void ofApp::setup(){
     
     timeCheck = ofGetElapsedTimeMillis();
     
-    
-
-    
 }
 
 
@@ -97,8 +111,6 @@ void ofApp::update(){
     kinectToPoints.update();    
     vector <ofPoint> & kinectPointCloud = kinectToPoints.getPointCloud();
 
-
-
     // HAND POINT CLOUD TO FLOCK AS ATTRACTION POINTS AND UPDATE
 
     flock.clearAttrPts();
@@ -109,7 +121,7 @@ void ofApp::update(){
         }
     } else {
         // add a soft attraction Point in the center to reward the swarm for staying away from the corners
-        // if (testSwitch) { flock.addAttractionPoint(0, 0, 0, 0.5, 600); }    
+        if (testSwitch) { flock.addAttractionPoint(0, 0, 0, 0.25, 600); }    
     }
 
     flock.update();
@@ -119,7 +131,7 @@ void ofApp::update(){
     
     // DERIVE LIGHT BULB INTENSITES
 
-    bulbCluster.updateIntensities(kinectPointCloud, 0.8, flockPositions, 0.5);
+    bulbCluster.updateIntensities(kinectPointCloud, maxIntensityKinect, flockPositions, maxIntensityFlock);
     vector <float> & intensities = bulbCluster.getIntensities();
     
     
@@ -140,12 +152,14 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
-    ofBackgroundGradient(ofColor(60,60,60), ofColor(10,10,10));
-    
-    ofSetColor(255);
 
     if(drawInstructions) {
+    
+        ofBackgroundGradient(ofColor(60,60,60), ofColor(10,10,10));
+        
+        ofSetColor(255);
+
+
 
         ofDrawBitmapStringHighlight(    "PRESS\n\n"
                                         "\'X\' to show bounding box\n"
@@ -154,72 +168,79 @@ void ofApp::draw(){
                                         "\'K\' to show Kinect point cloud\n"
                                         "\'C\' to show depth camera image\n"
                                         "\'S\' to show synth controls\n\n"
-                                        "Framerate: " + ofToString(ofGetFrameRate()), 50, ofGetHeight() * 0.5 - 100);
+                                        "\'R\' to toggle serial refreshrate 20/50fps\n"
+                                        "\'M\' to set Kinect tilt angle to 0 deg\n"
+                                        "\'N\' to set Kinect tilt angle to 30 deg\n\n"
+                                        "Framerate: " + ofToString(ofGetFrameRate()), 
+                                        
+                                        50, ofGetHeight() * 0.5 + 150);
+            
+
         
-    }    
-    
-    
-    
-    ofPushMatrix();
-    
-    
-    ofTranslate(ofGetWidth()*0.5, ofGetHeight()*0.5, 0); // move everything into the center of the canvas
-    
-    ofRotateYDeg(ofMap(ofGetMouseX(), 0, ofGetWidth(), -90.0, 90.0)); // rotate by mouseX-position
-    //    ofRotateXDeg(ofMap(ofGetMouseY(), 0, ofGetHeight(), 10.0, -10.0)); // rotate by mouseY-position
-    
-    
-    
-    
-    
-    
-    // DRAW PARTICLES
-    
-    if(drawParticles){
-        flock.drawScaled();
-    }
-    
+        
+        
+        ofPushMatrix();
+        
+        
+        ofTranslate(ofGetWidth()*0.5, ofGetHeight()*0.5, 0); // move everything into the center of the canvas
+        
+        ofRotateYDeg(ofMap(ofGetMouseX(), 0, ofGetWidth(), -90.0, 90.0)); // rotate by mouseX-position
+        //    ofRotateXDeg(ofMap(ofGetMouseY(), 0, ofGetHeight(), 10.0, -10.0)); // rotate by mouseY-position
+        
+        
+        
+        
+        
+        
+        // DRAW PARTICLES
+        
+        if(drawParticles){
+            flock.drawScaled();
+        }
+        
 
 
-    // DRAW BULB CLUSTER
-    
-    if(drawBulbs){
-        bulbCluster.draw();
-    }
-    
-    
-    
-    // DRAW POINT CLOUD FROM KINECT
-    if(drawKinect) {
-        ofSetColor(255, 0, 0);
-        kinectToPoints.draw();
-    }
-    
-    
+        // DRAW BULB CLUSTER
+        
+        if(drawBulbs){
+            bulbCluster.draw();
+        }
+        
+        
+        
+        // DRAW POINT CLOUD FROM KINECT
+        if(drawKinect) {
+            ofSetColor(255, 0, 0);
+            kinectToPoints.draw();
+        }
+        
+        
 
-    // DRAW BOUNDING BOX
-    
-    if(drawBox){
-        ofNoFill();
-        ofSetColor(100);
-        ofDrawBox(worldSize.x, worldSize.y, worldSize.z);
-        ofFill();
-    }
-    
-    
-    
-    ofPopMatrix();
-    // ofTranslate(ofGetWidth() - 300, 0);
+        // DRAW BOUNDING BOX
+        
+        if(drawBox){
+            ofNoFill();
+            ofSetColor(100);
+            ofDrawBox(worldSize.x, worldSize.y, worldSize.z);
+            ofFill();
+        }
+        
+        
+        
+        ofPopMatrix();
+        // ofTranslate(ofGetWidth() - 300, 0);
 
-    if(drawCam) {
-        ofSetColor(255);
-        kinectToPoints.drawCam(ofGetWidth() - 400, ofGetHeight() * 0.5);
-    }
+        if(drawCam) {
+            ofSetColor(255);
+            kinectToPoints.drawCam(50, ofGetHeight() * 0.5);
+        }
 
 
-    if(drawSynthControls) {
-        synth.gui.setPosition(ofGetWidth() - 370, 70);
-        synth.gui.draw();
+        if(drawSynthControls) {
+            synth.gui.setPosition(ofGetWidth() - 370, 70);
+            synth.gui.draw();
+        }
+
     }
     
 }
@@ -393,6 +414,10 @@ void ofApp::keyPressed(int key){
     }
     if( key == 'm'){
         kinectToPoints.setTiltAngle(0);
+    }
+    if( key == 'l'){
+        kinectLEDon = !kinectLEDon;
+        kinectToPoints.switchLEDon(kinectLEDon);
     }
     if( key == 't'){
         testSwitch = !testSwitch;

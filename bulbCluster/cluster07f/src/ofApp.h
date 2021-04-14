@@ -7,7 +7,6 @@
 #include "boids/Flock3d.h"
 
 
-
 class ofApp : public ofBaseApp{
 
 	public:
@@ -45,6 +44,9 @@ class ofApp : public ofBaseApp{
         kinectHandler kinectToPoints;
         PolySynth	synth;
 
+        float maxIntensityKinect;
+        float maxIntensityFlock;
+        
     
         // serial communication
         ofSerial serial;
@@ -60,6 +62,7 @@ class ofApp : public ofBaseApp{
         bool drawSynthControls;
         bool drawInstructions;
         bool drawKinect;
+        bool kinectLEDon;
         bool testSwitch;
     
     	

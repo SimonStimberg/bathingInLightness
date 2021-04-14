@@ -10,7 +10,7 @@
 
 // constructor
 bulbCluster::bulbCluster(){
-    
+    noisePosition = 0.0;
 }
 
 
@@ -32,16 +32,24 @@ void bulbCluster::updateIntensities(const vector <ofPoint> & kinectPos, float ki
         
     for(unsigned int i = 0; i < cluster.size(); i++){
         
-        // cluster[i].computeIntensity(particlePositions, weight);
-
+        
+        // compute the intensities regarding the individual weights
         float newIntensity = 0.0f;
         newIntensity += cluster[i].computeIntensity(kinectPos, kinectWeight);
         newIntensity += cluster[i].computeIntensity(flockPos, flockWeight);
         
-        cluster[i].updateIntensity(newIntensity);
+        cluster[i].updateIntensity(newIntensity);  // update it
 
-        bulbIntensities[i] = cluster[i].getIntensity();
+
+        // add some noise to make it more vivid (independently from the raw intensities)
+        float intensity = cluster[i].getIntensity();
+        float noise = ofNoise(i, noisePosition) * 0.33; // <- amplification factor for the noise           
+        intensity = intensity - (noise * intensity); // before substracted from the intensity, the noise is multiplied by the intensity -> to have a stronger affect if the bulb is bright and not so much impact if its only glowing low
+
+        bulbIntensities[i] = intensity;
     }
+
+    noisePosition += 0.02; // speed of the noise     
 }
 
 
@@ -55,8 +63,12 @@ vector<float> & bulbCluster::getIntensities() {
 
 void bulbCluster::draw() {
     for(unsigned int i = 0; i < cluster.size(); i++){
-            cluster[i].draw();
+            // cluster[i].draw();
             // cluster[i].drawRadius();
+
+            // draw with noise intensity
+            ofSetColor((int)(round(bulbIntensities[i]*255)));
+            ofDrawSphere(cluster[i].getPosition(), 10.0);
         }
 }
 
@@ -127,7 +139,7 @@ void bulbCluster::createRandomBulbCluster(ofVec3f boxSize, int bulbNum) {
         float y = ofRandom(-rV, rV);
 
 
-        cluster.push_back(bulb(ofPoint(x, y, z), i));
+        cluster.push_back(bulb(ofPoint(x, y, z)));
     }
     
 }
@@ -212,7 +224,7 @@ void bulbCluster::initPhysicalCluster(ofVec3f boxSize) {
         float z = roundf(positions[i+1] / 3 * 10) / 10 - boxSize.z * 0.5;
         float y = roundf(positions[i+2] / 3 * 10) / 10 - boxSize.y * 0.5;
         
-        cluster.push_back(bulb(ofPoint(x, y, z), i));
+        cluster.push_back(bulb(ofPoint(x, y, z)));
 
     }
     

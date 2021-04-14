@@ -45,7 +45,7 @@ void PolySynth::patch() {
 void PolySynth::setUI() {
 
     gui.setup("SYNTH");
-    gui.add( gain.set("master gain", -64, -64, -15) ); 
+    gui.add( gain.set("master gain", -15, -64, -12) ); 
     gain.enableSmoothing(50.f);
     
     uiOsc.setName("oscillator control");

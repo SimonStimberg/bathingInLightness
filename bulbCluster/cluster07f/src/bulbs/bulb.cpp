@@ -15,13 +15,10 @@ bulb::bulb(){
 }
 
 
-bulb::bulb(ofPoint initPosition, int thisId){
+bulb::bulb(ofPoint initPosition){
     pos = initPosition;
-    id = thisId;
     intensity = 0.0;
-    isEngaged = false;
     checkRadius = 40.0;
-    noisePosition = 0.0;
 }
 
 
@@ -57,21 +54,13 @@ float bulb::computeIntensity(const vector <ofPoint> & particlePositions, float w
 }
 
 
-float bulb::updateIntensity(float newIntsty) {
+void bulb::updateIntensity(float newIntsty) {
     
     float newIntensity = ofClamp(newIntsty, 0., 1.0);
         
     // smooth values, by only changing a bit
     intensity = intensity * 0.85 + newIntensity * 0.15;
 
-
-    float noise = ofNoise(id, noisePosition) * 0.3; // <- amplification factor for the noise
-    noisePosition += 0.01; // speed of the noise
-    
-    noisyIntensity = intensity - (noise * intensity); // before substracted from the intensity, the noise is multiplied by the intensity -> to have a stronger affect if the bulb is bright and not so much impact if its only glowing low
-
-
-    return noisyIntensity;
 }
 
 
@@ -80,7 +69,7 @@ void bulb::draw(){
     intensity = ofClamp(intensity, 0., 1.); // for safety
 
     // draw bulb with its brightness according to the intensity
-    ofSetColor((int)(round(noisyIntensity*255)));
+    ofSetColor((int)(round(intensity*255)));
     ofDrawSphere(pos, 10.0);
     
 }

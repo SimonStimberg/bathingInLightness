@@ -35,5 +35,6 @@ class bulbCluster{
 
         vector <bulb> cluster;
         vector <float> bulbIntensities;
+        float noisePosition;
             
 };

@@ -17,27 +17,22 @@ class bulb{
     
         // constructor
         bulb();
-        bulb(ofPoint initPosition, int thisId);
+        bulb(ofPoint initPosition);
     
         // member functions
         float computeIntensity(const vector <ofPoint> & particlePositions, float weight);
-        float updateIntensity(float newIntsty);
+        void updateIntensity(float newIntsty);
         void draw();
         void drawRadius();
         ofPoint getPosition() { return pos; }
         void setCheckRaidus(float r) { checkRadius = r; }
         float getIntensity() { return intensity; };
     
-        bool isEngaged;
-    
     
     private:
     
         ofPoint pos;
-        int id;
         float intensity;
         float checkRadius;
-        float noisePosition;
-        float noisyIntensity;
     
 };
