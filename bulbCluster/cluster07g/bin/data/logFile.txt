@@ -1,0 +1,767 @@
+
+
+--------------------------------------- 2021-04-14-16-39-39-867
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+[Unkown API: 2] Apple Inc.: HDMI [in:0 out:6]
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-14-16-40-30-934
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+[Unkown API: 2] Apple Inc.: HDMI [in:0 out:6]
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-14-16-41-17-233
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+[Unkown API: 2] Apple Inc.: HDMI [in:0 out:6]
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-14-16-42-07-313
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+[Unkown API: 2] Apple Inc.: HDMI [in:0 out:6]
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-15-12-16-04-902
+[verbose] ofxKinect: context inited
+[warning] ofxKinect: no available devices found
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[warning] ofxKinect: no available devices found
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14201
+[notice ] ofSerial: [1] = tty.usbmodem14201
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14201 sucessfully @ 38400 bps
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 1
+[warning] ofxKinect: no available devices found
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 2
+[warning] ofxKinect: no available devices found
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 3
+[warning] ofxKinect: no available devices found
+
+
+--------------------------------------- 2021-04-15-12-16-19-095
+[verbose] ofxKinect: context inited
+[warning] ofxKinect: no available devices found
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[warning] ofxKinect: no available devices found
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14201
+[notice ] ofSerial: [1] = tty.usbmodem14201
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14201 sucessfully @ 38400 bps
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 1
+[warning] ofxKinect: no available devices found
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 2
+[warning] ofxKinect: no available devices found
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 3
+[warning] ofxKinect: no available devices found
+
+
+--------------------------------------- 2021-04-15-12-16-40-163
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14201
+[notice ] ofSerial: [1] = tty.usbmodem14201
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-15-12-17-30-426
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14201
+[notice ] ofSerial: [1] = tty.usbmodem14201
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14201 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-15-12-18-51-163
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14201
+[notice ] ofSerial: [1] = tty.usbmodem14201
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14201 sucessfully @ 38400 bps
+[ error ] ofAppGLFWWindow: 65544: Cocoa: Failed to find service port for display
+
+
+--------------------------------------- 2021-04-15-12-40-29-931
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-15-12-41-36-542
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14201
+[notice ] ofSerial: [1] = cu.usbmodem14201
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14201 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14201 sucessfully @ 38400 bps
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+
+
+--------------------------------------- 2021-04-15-12-50-50-656
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14101
+[notice ] ofSerial: [1] = cu.usbmodem14101
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14101 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14101 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-15-12-51-06-991
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14101
+[notice ] ofSerial: [1] = cu.usbmodem14101
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14101 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14101 sucessfully @ 38400 bps
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+[warning] ofRtAudioSoundStream: stream over/underflow detected
+
+
+--------------------------------------- 2021-04-15-13-27-29-803
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = tty.usbmodem14101
+[notice ] ofSerial: [1] = cu.usbmodem14101
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [4] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [5] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: opening /dev/tty.usbmodem14101 @ 38400 bps
+[notice ] ofSerial: opened /dev/tty.usbmodem14101 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-15-15-50-18-262
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14101
+[notice ] ofSerial: [1] = tty.usbmodem14101
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14101 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14101 sucessfully @ 38400 bps
+[ error ] ofAppGLFWWindow: 65544: Cocoa: Failed to find service port for display
+
+
+--------------------------------------- 2021-04-15-15-57-36-882
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14101
+[notice ] ofSerial: [1] = tty.usbmodem14101
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14101 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14101 sucessfully @ 38400 bps
+[ error ] ofAppGLFWWindow: 65544: Cocoa: Failed to find service port for display
+
+
+--------------------------------------- 2021-04-15-15-58-10-663
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] SAFETY MODE ON. Reconnecting Kinect...: 
+[verbose] ofxKinect: device 0 A00365919812045A connection opened
+[verbose] ofxKinect: device 0 connection closed
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14101
+[notice ] ofSerial: [1] = tty.usbmodem14101
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14101 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14101 sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-15-22-56-02-145
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.usbmodem14101
+[notice ] ofSerial: [1] = tty.usbmodem14101
+[notice ] ofSerial: [2] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [3] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [4] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [5] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.usbmodem14101 @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.usbmodem14101 sucessfully @ 38400 bps
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 1
+
+
+--------------------------------------- 2021-04-16-22-35-55-553
+[verbose] ofxKinect: context inited
+[warning] ofxKinect: no available devices found
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps
+[ error ] ofAppGLFWWindow: 65544: Cocoa: Failed to find service port for display
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 1
+[warning] ofxKinect: no available devices found
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 2
+[warning] ofxKinect: no available devices found
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 3
+[warning] ofxKinect: no available devices found
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 4
+[warning] ofxKinect: no available devices found
+[warning] ofxKinect: update(): device -1 isn't delivering data. depth: 0 color: 0  , reconnecting tries: 5
+[warning] ofxKinect: no available devices found
+
+
+--------------------------------------- 2021-04-17-15-17-02-842
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps
+[ error ] ofAppGLFWWindow: 65544: Cocoa: Failed to find service port for display
+
+
+--------------------------------------- 2021-04-17-15-18-22-088
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-17-15-24-13-371
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-17-15-24-42-278
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-17-15-35-23-869
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-17-15-35-38-630
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps
+
+
+--------------------------------------- 2021-04-17-16-34-04-558
+[verbose] ofxKinect: context inited
+[verbose] ofxKinect: 1 device found
+[verbose] ofxKinect:     id: 0 serial: A00365919812045A
+[notice ] Kinect Dimensions: 640x480: 
+[notice ] Current Tilt Angle: 0: 
+[notice ] dev connected!!!: 
+[notice ] ofSoundStreamListDevices: 
+[Unkown API: 0] Apple Inc.: Built-in Input [in:2 out:0] (default in)
+[Unkown API: 1] Apple Inc.: Built-in Output [in:0 out:2] (default out)
+
+[notice ] [pdsp] engine: starting with parameters: buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] [pdsp] engine: started | buffer size = 512 | sample rate = 44100 | 0 inputs | 2 outputs
+
+[notice ] ofSerial: [0] = cu.Bluetooth-Incoming-Port
+[notice ] ofSerial: [1] = tty.Bluetooth-Incoming-Port
+[notice ] ofSerial: [2] = cu.Calculon-Bluetooth-Inco
+[notice ] ofSerial: [3] = tty.Calculon-Bluetooth-Inco
+[notice ] ofSerial: opening /dev/cu.Bluetooth-Incoming-Port @ 38400 bps
+[notice ] ofSerial: opened /dev/cu.Bluetooth-Incoming-Port sucessfully @ 38400 bps

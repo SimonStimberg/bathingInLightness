@@ -116,7 +116,7 @@ void setup() {
   for (int i = 0; i < bulbNum; i++) {
     intensities[i] = dimMIN;
     dimmerMatrix[i]->begin(NORMAL_MODE, ON);
-    dimmerMatrix[i]->setPower(intensities[i]);
+    dimmerMatrix[i]->setPower(30);            // SET ALL TO A MEDIUM LOW BRIGHTNESS TO SEE IF ALL OBEY
   }
 
 
@@ -130,73 +130,73 @@ void loop() {
 
 
   // only run if a full command string is avaliable and its not reading a new one atm
-  if (stringComplete && !stringStart) {
-
-
-    for (int i = 0; i < bulbNum; i++) {
-
-      // map the intensities to suitable dimmer values
-      float dimVal = constrain((float)intensities[i], 0, 1000);
-      dimVal = map(dimVal, 0., 125., dimMIN, dimMAX);
-
-      // set the dimmer to dimmer value
-      dimmerMatrix[i]->setPower(dimVal);
-
-    }
-
-    stringComplete = false;
-
-  }
+//  if (stringComplete && !stringStart) {
+//
+//
+//    for (int i = 0; i < bulbNum; i++) {
+//
+//      // map the intensities to suitable dimmer values
+//      float dimVal = constrain((float)intensities[i], 0, 1000);
+//      dimVal = map(dimVal, 0., 125., dimMIN, dimMAX);
+//
+//      // set the dimmer to dimmer value
+//      dimmerMatrix[i]->setPower(dimVal);
+//
+//    }
+//
+//    stringComplete = false;
+//
+//  }
 
 }
 
 
 
 void serialEvent() {
-
-  while (Serial.available()) {
-    // get the new byte:
-    char inChar = (char)Serial.read();
-
-
-    // only check for serial data if its not processing the previous one in the loop function
-    if (!stringComplete) {
-
-
-      // if a starting byte has been detected read the upcoming bytes
-      if (stringStart) {
-
-
-        //  if the incoming byte is 126 -> means string ended
-        if (inChar == 126) {
-
-          // check if a full string is read (52 bytes) and set the stringComplete flag
-          // if not, the string is damaged therefore discard it and search for a new one
-          if (byteCount == 52) {
-            stringComplete = true;
-          }
-
-          stringStart = false;
-          byteCount = 0;
-
-        } else {
-
-          // add the incoming byte as integer value to the intensities array
-          intensities[byteCount] = (int)inChar;
-          byteCount++;
-
-        }
-
-      }
-
-      // if the incoming byte is 127 -> means new string starting
-      // hence set the stringStart flag
-      if (inChar == 127) {
-        stringStart = true;
-      }
-
-    }
-
-  }
+//
+//  while (Serial.available()) {
+//    // get the new byte:
+//    char inChar = (char)Serial.read();
+//
+//
+//    // only check for serial data if its not processing the previous one in the loop function
+//    if (!stringComplete) {
+//
+//
+//      // if a starting byte has been detected read the upcoming bytes
+//      if (stringStart) {
+//
+//
+//        //  if the incoming byte is 126 -> means string ended
+//        if (inChar == 126) {
+//
+//          // check if a full string is read (52 bytes) and set the stringComplete flag
+//          // if not, the string is damaged therefore discard it and search for a new one
+//          if (byteCount == 52) {
+//            stringComplete = true;
+//          }
+//
+//          stringStart = false;
+//          byteCount = 0;
+//
+//        } else {
+//
+//          // add the incoming byte as integer value to the intensities array
+//          intensities[byteCount] = (int)inChar;
+//          byteCount++;
+//
+//        }
+//
+//      }
+//
+//      // if the incoming byte is 127 -> means new string starting
+//      // hence set the stringStart flag
+//      if (inChar == 127) {
+//        stringStart = true;
+//      }
+//
+//    }
+//
+//  }
 
 }

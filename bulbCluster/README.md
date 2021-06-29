@@ -67,6 +67,9 @@
   - adjusted parameters correspondingly - also the creation for a random bulb cluster
 - added a attraction point in the center to award the swarm for staying more in the center
 
+## Cluster08g
+- Zoenoteka exhibition: on site changes/implementations
+
 ## Cluster08
 - Implementation of Skeleton Tracker
 - changes/replacements in kinect class to implement the openNI stuff for tracking
