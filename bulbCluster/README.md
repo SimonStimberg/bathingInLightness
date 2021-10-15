@@ -67,9 +67,15 @@
   - adjusted parameters correspondingly - also the creation for a random bulb cluster
 - added a attraction point in the center to award the swarm for staying more in the center
 
-## Cluster08g
+## Cluster07g
 - Zoenoteka exhibition: on site changes/implementations
 
 ## Cluster08
 - Implementation of Skeleton Tracker
 - changes/replacements in kinect class to implement the openNI stuff for tracking
+
+## Cluster09
+- flow calculation in the kinect class
+  - the overall flow amount is being computed which determines the intensity impact of the kinect point cloud
+  - with more movement the intensities getting higher and the sound gets louder
+  - the swarm is not affected by this
