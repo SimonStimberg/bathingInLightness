@@ -79,3 +79,8 @@
   - the overall flow amount is being computed which determines the intensity impact of the kinect point cloud
   - with more movement the intensities getting higher and the sound gets louder
   - the swarm is not affected by this
+
+## Cluster10
+- Multiple Kinect feature
+  - the point cloud space is divided for 2 Kinects
+  - the calculated flow is an average of the movement of all kinects together
