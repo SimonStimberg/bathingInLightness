@@ -12,12 +12,15 @@ void PolySynth::setup( vector <int> pitches ){
     for( size_t i=0; i<voices.size(); ++i ){
         voices[i].setup( *this, i, pitches[i]);
     }   
+
+    masterBus.channels(4);
+    gain.channels(4);
     
     patch();
     setUI();
     
 }
-
+ 
 
 void PolySynth::patch() {
 
@@ -25,20 +28,35 @@ void PolySynth::patch() {
     for(int i=0; i<voices.size(); ++i){
 
          // connect each voice to the master gain (master bus)
-         voices[i].out("L") >> chorus.ch(0);
-         voices[i].out("R") >> chorus.ch(1);
-     }
+        voices[i].out("front_L") >> masterBus.ch(0);
+        voices[i].out("front_R") >> masterBus.ch(1);
+        voices[i].out("back_L")  >> masterBus.ch(2);
+        voices[i].out("back_R")  >> masterBus.ch(3);
 
-     500 >> loCut.in_freq();
+    }
 
-     chorus.ch(0) >> delay.ch(0) >> comp.ch(0) >> loCut.ch(0) >> gain.ch(0) >> engine.audio_out(0);
-     chorus.ch(1) >> delay.ch(1) >> comp.ch(1) >> loCut.ch(1) >> gain.ch(1) >> engine.audio_out(1);
+     500 >> loCutF.in_freq();
+
+    //  chorus.ch(0) >> delay.ch(0) >> comp.ch(0) >> loCut.ch(0) >> gain.ch(0) >> engine.audio_out(0);
+    //  chorus.ch(1) >> delay.ch(1) >> comp.ch(1) >> loCut.ch(1) >> gain.ch(1) >> engine.audio_out(1);
+
+    // masterBus.ch(0) >> chorusF.ch(0) >> delayF.ch(0) >> gain.ch(0) >> engine.audio_out(0);
+    // masterBus.ch(1) >> chorusF.ch(1) >> delayF.ch(1) >> gain.ch(1) >> engine.audio_out(1);
+    // masterBus.ch(2) >> chorusB.ch(0) >> delayB.ch(0) >> gain.ch(2) >> engine.audio_out(2);
+    // masterBus.ch(3) >> chorusB.ch(1) >> delayB.ch(1) >> gain.ch(3) >> engine.audio_out(3);
+
+    // with low cut and compressor
+    masterBus.ch(0) >> chorusF.ch(0) >> delayF.ch(0) >> compF.ch(0) >> loCutF.ch(0) >> overdriveFL >> gain.ch(0) >> engine.audio_out(0);
+    masterBus.ch(1) >> chorusF.ch(1) >> delayF.ch(1) >> compF.ch(1) >> loCutF.ch(1) >> overdriveFR >> gain.ch(1) >> engine.audio_out(1);
+    masterBus.ch(2) >> chorusB.ch(0) >> delayB.ch(0) >> compB.ch(0) >> loCutB.ch(0) >> overdriveBL >> gain.ch(2) >> engine.audio_out(2);
+    masterBus.ch(3) >> chorusB.ch(1) >> delayB.ch(1) >> compB.ch(1) >> loCutB.ch(1) >> overdriveBR >> gain.ch(3) >> engine.audio_out(3);
 
         
 
      //------------SETUPS AND START AUDIO-------------
     engine.listDevices();
     engine.setDeviceID(5); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
+    engine.setChannels(0, 4);
     engine.setup( 44100, 512, 3); 
 
 }
@@ -62,7 +80,7 @@ void PolySynth::setUI() {
         osc1.add(pwmSpeed.set("pwm speed (hz)", 0.3f, 0.005f, 1.5f));
 
         osc2.setName("osc 2 (sine)");
-        osc2.add(octaveShift.set("octave", 0, -1, 2) );
+        osc2.add(octaveShift.set("octave", -1, -1, 2) );
         osc2.add(fineTune.set("fine tune", 0.0f, -0.5f, 0.5f) );
         
         uiOsc.add( osc1 );
@@ -77,8 +95,8 @@ void PolySynth::setUI() {
 
     gui.add( uiOsc );
     gui.add( uiFilter );
-    gui.add( chorus.parameters );
-    gui.add( delay.parameters );
+    gui.add( chorusF.parameters );
+    gui.add( delayF.parameters );
     gui.setPosition(20, 20);
 
 
@@ -110,13 +128,15 @@ void PolySynth::setVoiceLevels(vector <float> & levels) {
 }
 
 
-void PolySynth::setVoicePans(vector <float> & panPos) {
+void PolySynth::setVoicePans(vector <glm::vec2> & panPos) {
     
     if (voices.size() == panPos.size()) {   
 
         for( size_t i=0; i<voices.size(); ++i ){
 
-            panPos[i] >> voices[i].in_pan();
+            panPos[i].x >> voices[i].pan_front();
+            panPos[i].x >> voices[i].pan_back();
+            panPos[i].y >> voices[i].pan_depth();
         }   
         
     }
@@ -129,17 +149,22 @@ void PolySynth::setVoicePans(vector <float> & panPos) {
 
 void PolySynth::Voice::setup( PolySynth & ui, int v, int pitch){
 
-    addModuleInput("pan", pan.in_pan());
+    addModuleInput("panFront", panFront.in_pan());
+    addModuleInput("panBack", panBack.in_pan());
+    addModuleInput("panDepth", panDepth.in_pan());
+
     addModuleInput("pitch", voicePitch);
     addModuleInput("cutoff", filter.in_cutoff() );
     // addModuleOutput("signal", voiceAmp);
-    addModuleOutput("L", pan.out_L() );
-    addModuleOutput("R", pan.out_R() );
+    addModuleOutput("front_L", panFront.out_L() );
+    addModuleOutput("front_R", panFront.out_R() );
+    addModuleOutput("back_L", panBack.out_L() );
+    addModuleOutput("back_R", panBack.out_R() );
 
-
-    // SIGNAL PATH
-    
-    mix >> filter >> voiceAmp >> pan;
+    // SIGNAL PATH   
+    mix >> filter >> voiceAmp >> panDepth;
+    panDepth.out_L() >> panFront;
+    panDepth.out_R() >> panBack;
 
     // OSC 1 - Pulse Wave
                                         osc1.out_pulse() >> mix.in_A();

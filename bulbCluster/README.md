@@ -77,10 +77,15 @@
 ## Cluster09
 - flow calculation in the kinect class
   - the overall flow amount is being computed which determines the intensity impact of the kinect point cloud
-  - with more movement the intensities getting higher and the sound gets louder
+  - with more movement the intensities getting higher and the sound gets louder (and cutoff filter opens)
   - the swarm is not affected by this
 
 ## Cluster10
 - Multiple Kinect feature
   - the point cloud space is divided for 2 Kinects
   - the calculated flow is an average of the movement of all kinects together
+
+## Cluster11
+- 4 Channel Surround feature
+  - self-made surround panner from combining 3 stereo panner
+  - fall back for Stereo setup: overwrite the Y-panning with -1.0
