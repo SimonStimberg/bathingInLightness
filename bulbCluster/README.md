@@ -89,3 +89,20 @@
 - 4 Channel Surround feature
   - self-made surround panner from combining 3 stereo panner
   - fall back for Stereo setup: overwrite the Y-panning with -1.0
+
+## Cluster11b
+- lab 30 exhibition on location changes
+  - dim sound on mouse click
+  - deactivated flow calculation - did not work well with 2 Kinects
+  - open Kinect by Serial ID to make sure the right one is chosen first (to keep the same order)
+  - adjusted the Bulb Positions to the new real world length corresponding to the exhibition setup
+  - adjusted the 2 Kinect mapping/mirroring to real world conditions
+
+## Cluster12a
+- added demo points function to aid/check mapping of the bulbs
+  - uses the Kinect Point Cloud array to create a grid of topdown moving points
+  - the check radius of the bulbs has to be decreased to achieve a meaningful pattern 
+- based on version Cluster11 - so before the lab 30 changes (!)
+
+## Cluster12b
+- merging the lab30 changes (v11b) with the new mapping function (from v12a)
