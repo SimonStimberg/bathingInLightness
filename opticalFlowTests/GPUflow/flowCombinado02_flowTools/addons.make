@@ -1,5 +1,0 @@
-ofxOpenCv
-ofxCv
-ofxFlowTools
-ofxKinect
-ofxMIOFlowGLSL
