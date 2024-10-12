@@ -111,3 +111,7 @@
 - PACE festival setup
   - setup for 1 Kinect and stereo
   - delay of the synth seems to be the culprit for generating clipping artifacts - setting output gain to -12dB apparently solved the problem
+
+## Cluster12d
+- WIP festival Cyprus
+  - 
