@@ -16,8 +16,9 @@ class ofApp : public ofBaseApp{
         void exit();
     
         void setBrightnessToDaytime();
-        void initSynth();
+        void initSynth(bool quadMode = false);
         void sendToArduino(vector <float> &intensities);
+        void mouseTrigger();
 
 		void keyPressed  (int key);
 		void keyReleased(int key);
@@ -25,6 +26,7 @@ class ofApp : public ofBaseApp{
 		void mouseDragged(int x, int y, int button);
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
+        void mouseScrolled(int x, int y, float scrollX, float scrollY);
 		void mouseEntered(int x, int y);
 		void mouseExited(int x, int y);
 		void windowResized(int w, int h);
@@ -65,7 +67,11 @@ class ofApp : public ofBaseApp{
         bool kinectLEDon;
         bool testSwitch;
         bool dimSound;
+
         int prevClickTime;
+        bool mouseDown = false;
+		int mouseDownTime = 0;
+        int mouseDownButton;
 
         bool playDemo;
     

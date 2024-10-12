@@ -114,4 +114,9 @@
 
 ## Cluster12d
 - WIP festival Cyprus
-  - 
+  - setup for 2 Kinects and 4ch sound
+  - no "vertical sync" -> headless mode
+- added functions
+  - restart/shutdown via holding mouse button (left/right) for 5sec 
+    - (get password from file)
+  - control sound volume via mouse scroll wheel

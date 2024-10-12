@@ -37,7 +37,7 @@ private:
     void computePointCloud();
     void computeFlow();
         
-    static const int numKinects = 1;
+    static const int numKinects = 2;
     ofxKinect kinect[numKinects];
     
     vector <ofPoint> pointCloud;

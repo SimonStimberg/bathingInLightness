@@ -6,7 +6,7 @@
 void ofApp::setup(){
 
     // ofLogToFile("logFile.txt", true);
-    // ofToggleFullscreen();
+    ofToggleFullscreen();
     
     ofSetFrameRate(60);
     ofSetVerticalSync(false);   // headless mode: do not sync to monitor refresh rate 
@@ -62,7 +62,7 @@ void ofApp::setup(){
     kinectToPoints.setup(worldSize);
     kinectToPoints.switchLEDon(kinectLEDon);
 
-    initSynth();
+    initSynth(true);    // true for quad mode, false for stereo mode
 
 
 
@@ -107,14 +107,16 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
+    mouseTrigger();     // handle mouse trigger for shutdown/restart
+
     // setBrightnessToDaytime();
     
     
     // COMPUTE KINECT POINT CLOUD
 
     kinectToPoints.update();    
-    vector <ofPoint> & kinectPointCloud = kinectToPoints.getPointCloud();
-    // vector <ofPoint> & kinectPointCloud = kinectToPoints.getDemoPoints(playDemo);   // DEMO-MODE FOR MAPPING
+    // vector <ofPoint> & kinectPointCloud = kinectToPoints.getPointCloud();
+    vector <ofPoint> & kinectPointCloud = kinectToPoints.getDemoPoints(playDemo);   // DEMO-MODE FOR MAPPING
 
 
     // HAND POINT CLOUD TO FLOCK AS ATTRACTION POINTS AND UPDATE
@@ -185,7 +187,10 @@ void ofApp::draw(){
                                         "\'S\' to show synth controls\n\n"
                                         "\'R\' to toggle serial refreshrate 20/50fps\n"
                                         "\'M\' to set Kinect tilt angle to 0 deg\n"
-                                        "\'N\' to set Kinect tilt angle to 30 deg\n\n"
+                                        "\'N\' to set Kinect tilt angle to 30 deg\n"
+                                        "\'L\' to switch Kinect LED on/off\n\n"
+                                        "\'F\' toggle fullscreen\n"
+                                        "\' \' turn display on/off\n\n"
                                         "Framerate: " + ofToString(ofGetFrameRate()), 
                                         
                                         50, ofGetHeight() * 0.5 + 150);
@@ -291,7 +296,7 @@ void ofApp::setBrightnessToDaytime() {
 
 
 
-void ofApp::initSynth() {
+void ofApp::initSynth(bool quadMode) {
 
     vector <int> pitches;
     vector <glm::vec2> panPositions;
@@ -307,7 +312,10 @@ void ofApp::initSynth() {
         // set panPosition of the note according to the x and z position of the bulb
         float panX = ofMap(b.x, -worldSize.x*0.5, worldSize.x*0.5, -4.f, 4.f);      // using a greater range than -1.0 to 1.0 will overemphasize the panning and make the spacial effect more extreme -> more perceivable
         // float panY = ofMap(b.z, -worldSize.z*0.5, worldSize.z*0.5, -4.f, 4.f);
-        float panY = -1.0;      // for Stereo fall back
+        // float panY = -1.0;      // for Stereo fall back
+        float panY = (!quadMode) ? ofMap(b.z, -worldSize.z*0.5, worldSize.z*0.5, -4.f, 4.f) : -1.0;      // stereo vs 4ch setup
+        ofLogNotice("4channel mode active: " + ofToString(quadMode));
+
         panPositions.push_back( glm::vec2(panX, panY) );    // to use a 2-speaker setup only, replace panY with -1.0 to ignore the 2nd spacial dimension
 
 
@@ -423,6 +431,37 @@ void ofApp::sendToArduino(vector <float> &intensities) {
 
 
 
+//--------------------------------------------------------------
+// SHUTDOWN THE SYSTEM IF MOUSE IS PRESSED FOR 5 SECONDS
+void ofApp::mouseTrigger() {
+
+    if (mouseDown && !drawInstructions) {        
+
+        // ofLogNotice("still pressed");
+        if (ofGetElapsedTimeMillis() > mouseDownTime + 5000 ) {
+
+            string pw = ofBufferFromFile("masterpw.txt").getText();
+
+            if (mouseDownButton == 0) { // left mouse button
+                ofLogNotice("restart please");
+                // ofSystem("echo \"xxx\" | sudo -S shutdown -r now");
+                ofSystem("echo \"" + pw + "\" | sudo -S shutdown -r now");
+                ofExit();
+            } else if (mouseDownButton == 2) {  // right mouse button
+                ofLogNotice("shutdown please");
+                ofSystem("echo \"" + pw + "\" | sudo -S shutdown -h now");                
+                ofExit();
+            }
+            // sudo -S -> read password from stdin
+            // shutdown -h -> halt (aka power off)
+            // shutdown -r -> reboot
+        }
+    }
+
+}
+
+
+
 void ofApp::exit() { 
     kinectToPoints.exit();
 }
@@ -484,10 +523,6 @@ void ofApp::keyPressed(int key){
     }
 
 
-    
-
-    
-
 }
 
 
@@ -511,6 +546,14 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+
+    if (!mouseDown) {
+        mouseDown = true;
+        mouseDownButton = button;
+        mouseDownTime = ofGetElapsedTimeMillis();
+        // ofLogNotice("first press");
+    } 
+    
     // if(ofGetElapsedTimeMillis()-prevClickTime < 300){  
         // switch sound
         // if(!dimSound) {
@@ -527,7 +570,30 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
+
+    mouseDown = false;
     
+}
+
+void ofApp::mouseScrolled(int x, int y, float scrollX, float scrollY) {
+
+    if (!drawInstructions) {    // only when display is disabled
+
+        // use the scroll wheel to adjust the overall sound level
+        float soundLevel = synth.gain.get();
+        soundLevel -= scrollY * 0.2;
+        soundLevel = ofClamp(soundLevel, -32.0, 12.0);  // clamp between -32dB and 12dB
+
+        synth.gain.set( soundLevel );
+
+    }
+    
+    // ofLogNotice("scroll Y: " + ofToString(scrollY));    
+    // float lin = 0.5;
+    // ofLogNotice("lin 0.5 as dB: " + ofToString( pdsp::LinToDB::eval(lin) ));
+    // float db = -6.0;
+    // ofLogNotice("dB -6 as lin: " + ofToString(dB(db)));
+
 }
 
 //--------------------------------------------------------------
