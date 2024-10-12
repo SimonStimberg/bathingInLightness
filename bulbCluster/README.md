@@ -106,3 +106,8 @@
 
 ## Cluster12b
 - merging the lab30 changes (v11b) with the new mapping function (from v12a)
+
+## Cluster12c
+- PACE festival setup
+  - setup for 1 Kinect and stereo
+  - delay of the synth seems to be the culprit for generating clipping artifacts - setting output gain to -12dB apparently solved the problem
